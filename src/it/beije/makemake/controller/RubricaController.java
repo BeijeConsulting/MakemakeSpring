@@ -73,20 +73,28 @@ public class RubricaController {
 		
 		return "vedi_contatto";
 	}
+
+	@RequestMapping(path = "/cancella_contatto", method = RequestMethod.GET)
+	public String delete() {
+		System.out.println("GET cancella_contatto");
+		
+		return "cancella_contatto";
+	}
 	
 	@Transactional
-	@RequestMapping(path = "/delete_contatto", method = RequestMethod.POST)
-	public String deleteContatto(Model model,
-			@RequestParam String name,
-			@RequestParam String surname) {
-		System.out.println("POST delete_contatto");
-		
-		System.out.println("Ricerca di " + name + " " + surname);
-		
-		List<Contatto> dyingContatti = contattoRepository.findByNameAndSurname(name, surname);
-		model.addAttribute("contattirimossi", dyingContatti);
-		contattoRepository.deleteAll(dyingContatti);
-		
+	@RequestMapping(path = "/delete", method = RequestMethod.POST)
+	public String delete(Model model, @RequestParam(required = false) String name,
+			@RequestParam(required = false) String surname) {
+
+		System.out.println("POST contatto");
+		System.out.println("Ricerca di : " + name + " ; " + surname);
+
+		List<Contatto> delcontatti = contattoRepository.findByNameAndSurname(name, surname);
+
+		model.addAttribute("contattirimossi", delcontatti);
+		contattoRepository.deleteAll(delcontatti);
+
 		return "contatti_rimossi";
 	}
+
 }
