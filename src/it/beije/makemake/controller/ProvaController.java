@@ -31,9 +31,9 @@ public class ProvaController {
 	
 	
 	@RequestMapping(path ="/", method = RequestMethod.GET)
-	public String menuOperazioni() {
+	public String home() {
 		System.out.println("Get login");
-		return "menuOperazioni";
+		return "menu_operazione";
 	}
 	
 }
