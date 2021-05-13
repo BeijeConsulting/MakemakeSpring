@@ -67,21 +67,4 @@ public class TestController {
 		return "home";
 	}
 
-	@RequestMapping(path = "/contatto", method = RequestMethod.GET)
-	public String contatto() {
-		System.out.println("GET contatto");
-		
-		return "contatto";
-	}
-
-	@RequestMapping(path = "/contatto", method = RequestMethod.POST)
-	public String contatto(Contatto contatto, Model model) {
-		System.out.println("POST contatto");
-		
-		System.out.println("contatto : " + contatto);
-		model.addAttribute("contatto", contatto);
-		
-		return "vedi_contatto";
-	}
-
 }
