@@ -21,6 +21,5 @@ email: ${contatto.email}<br>
 full name: ${contatto.fullName}
 <br><br><br>
 </c:forEach>
-
 </body>
 </html>
