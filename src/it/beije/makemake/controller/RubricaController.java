@@ -73,5 +73,20 @@ public class RubricaController {
 		
 		return "vedi_contatto";
 	}
-
+	
+	@Transactional
+	@RequestMapping(path = "/delete_contatto", method = RequestMethod.POST)
+	public String deleteContatto(Model model,
+			@RequestParam String name,
+			@RequestParam String surname) {
+		System.out.println("POST delete_contatto");
+		
+		System.out.println("Ricerca di " + name + " " + surname);
+		
+		List<Contatto> dyingContatti = contattoRepository.findByNameAndSurname(name, surname);
+		model.addAttribute("contattirimossi", dyingContatti);
+		contattoRepository.deleteAll(dyingContatti);
+		
+		return "contatti_rimossi";
+	}
 }
