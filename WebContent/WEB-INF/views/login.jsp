@@ -14,7 +14,11 @@ ${errore}
   <label for="username">username:</label><br>
   <input type="text" name="username"><br>
   <label for="password">password:</label><br>
-  <input type="password" name="password"><br><br>
+  <input type="password" name="password"><br>
+  <label for="name">name:</label><br>
+  <input type="text" name="name"><br>
+  <label for="surname">surname:</label><br>
+  <input type="text" name="surname"><br><br>
   <input type="submit" value="Submit">
 </form> 
 
