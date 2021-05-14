@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.makemake.ecommerce.User;
 import it.beije.makemake.service.OrderService;
+import it.beije.makemake.service.ProductService;
 import it.beije.makemake.service.UserService;
 
 @Controller
@@ -21,18 +22,17 @@ public class ECommerceController {
     @Autowired
     private UserService userService;
 
-    
     @Autowired
     private OrderService orderService;
+    
+    @Autowired
+    private ProductService productService;
   
-
 
     @RequestMapping(path="/ecommerce/")
     public String index(HttpSession session) {
         return userService.index(session);
     }
-
-
 
     @RequestMapping(path="/ecommerce/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
@@ -40,7 +40,6 @@ public class ECommerceController {
     }
 
 	
-
     @RequestMapping(path="/ecommerce/orders")
     public String viewOrders(HttpSession session, Model model) {
         return userService.viewOrders(session, model);
@@ -68,5 +67,14 @@ public class ECommerceController {
     	return "register";
     }
     
+    @RequestMapping(path = "ecommerce/view_products")
+    public String getProducts(Model model) {
+    	return productService.getProducts(model) ; 
+    }
+    
+    @RequestMapping(path = "ecommerce/buyProduct",method = RequestMethod.GET)
+    public String buyProduct(@RequestParam Integer productId,Model model) {
+    	return productService.buyProduct(model, productId);
+    }
 
 }

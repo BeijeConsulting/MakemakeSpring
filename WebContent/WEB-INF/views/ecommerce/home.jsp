@@ -14,14 +14,18 @@
 
 <h3>Welcome, ${user.name}</h3>
 <br>
+
 <form action="${pageContext.request.contextPath}/ecommerce/orders">
     <input type="submit" value="View orders">
 </form>
+
+<form action="${pageContext.request.contextPath}/ecommerce/view_products">
+    <input type="submit" value="Create order">
+</form>
+
 <form action="${pageContext.request.contextPath}/ecommerce/logout">
     <input type="submit" value="Logout">
 </form>
-
-
 
 </body>
 </html>
