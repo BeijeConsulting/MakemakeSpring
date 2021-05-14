@@ -16,7 +16,7 @@ import it.beije.makemake.Contatto;
 import it.beije.makemake.repository.ContattoRepository;
 
 
-@Controller
+//@Controller
 public class RubricaController {
 	
 	@Autowired

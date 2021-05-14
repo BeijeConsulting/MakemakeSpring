@@ -11,7 +11,7 @@ import it.beije.makemake.Contatto;
 
 
 @Repository
-public interface ContattoRepository extends JpaRepository<Contatto, Integer> {
+public interface ContattoRepository extends JpaRepository<Contatto, Integer> { //jpaRepository, interfaccia per usare jap su spring, estende crud repository
 	
 	public List<Contatto> findByEmail(String email);
 
