@@ -117,4 +117,3 @@ CREATE TABLE `makemake`.`user` (
 PRIMARY KEY (`id`),
 UNIQUE INDEX `email_UNIQUE` (`username` ASC) VISIBLE);
 */
-

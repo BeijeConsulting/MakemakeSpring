@@ -62,5 +62,5 @@ public class RubricaController {
 		
 		return "vedi_contatto";
 	}
-
 }
+

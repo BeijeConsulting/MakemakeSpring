@@ -10,4 +10,5 @@ import it.beije.makemake.ecommerce.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> { 
+
 }

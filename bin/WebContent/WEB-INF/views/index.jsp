@@ -4,16 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ecomemrce User</title>
+<title>MAKEMAKE SPRING</title>
 </head>
 <body>
-
+CIAO MAKEMAKE :-)<br>
 <br>
-id: ${user.id}<br>
-username: ${user.username}<br>
-password: ${user.password}<br>
-name: ${user.name}<br>
-surname: ${user.surnaame}<br>
-
+country: ${country}<br>
+language: ${language}<br>
 </body>
 </html>

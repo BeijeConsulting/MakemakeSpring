@@ -4,25 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>Makemake Home</title>
 </head>
 <body>
-
-<TABLE WIDTH="75%" ALIGN="center">
-  <TR>
-<TD>
-<DIV ALIGN="center">
-<h1>BENVENUTO</h1></DIV>
-<DIV ALIGN="justify">
-
-Benvenuto nell Ecomerce<br>
+Benvenuto<br>
 <br>
 username: ${username}<br>
 password: ${password}<br>
 
-</DIV>
-</TD>
-</TR>
-</TABLE>
 </body>
 </html>
