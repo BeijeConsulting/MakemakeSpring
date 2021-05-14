@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import it.beije.makemake.repository.ContattoRepository;
 import it.beije.makemake.repository.ProductRepository;
 import it.beije.makemake.repository.UserRepository;
 
+@Controller
 public class EcommerceController {
 	@Autowired
 	private ContattoRepository contattoRepository;
@@ -26,21 +28,12 @@ public class EcommerceController {
 	private UserRepository userRepository;
 	
 
-	
 	@RequestMapping(path = "/loginE", method = RequestMethod.GET)
-	public String user() {
-		
+	public String login() {
 		System.out.println("GET loginE");
 		
-		return "vedi_user";
+		return "login_ecommerce";
 	}
-	@RequestMapping(path = "/loginE", method = RequestMethod.POST)
-	public String user(Model model,
-			@RequestParam(required = false) String username,
-			@RequestParam(required = false) String password) {
-		
-		System.out.println("GET loginE");
-		
-		return "vedi_user";
-	}
+
+
 }
