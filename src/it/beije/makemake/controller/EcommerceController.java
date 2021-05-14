@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ProvaController {
+public class EcommerceController {
 
 	@RequestMapping(path ="/viewProducts", method = RequestMethod.GET)
 	public String viewProducts() {
@@ -29,10 +29,17 @@ public class ProvaController {
 		return "login";
 	}
 	
+	@RequestMapping(path ="/menu_operazioni", method = RequestMethod.GET)
+	public String menuOperazioni() {
+		System.out.println("Get menu_operazioni");
+		return "menu_operazione";
+	}
+	
+	
 	
 	@RequestMapping(path ="/", method = RequestMethod.GET)
-	public String home() {
-		System.out.println("Get login");
+	public String welcome() {
+		System.out.println("Get menu_operazioni");
 		return "menu_operazione";
 	}
 	

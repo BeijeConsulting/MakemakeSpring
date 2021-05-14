@@ -12,9 +12,9 @@
 	<h1>
 		Welcome !
 	</h1>
-	<form  >
+	<form>
 	
-	<a href = "login.jsp">Login</a><br><br>
+	<a href = "login">Login</a><br><br>
 	<a href = "prodotti.jsp">View Products</a><br><br>
 	<!--<a href = "createOr">Add to cart</a>  -->
 	<a href = "orderItem.jsp">View cart</a><br><br>

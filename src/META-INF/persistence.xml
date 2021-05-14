@@ -5,6 +5,7 @@
 		<class>it.beije.makemake.ecommerce.Order</class>
 		<class>it.beije.makemake.ecommerce.OrderItem</class>
 		<class>it.beije.makemake.ecommerce.Product</class>
+		<class>it.beije.makemake.Contatto</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
