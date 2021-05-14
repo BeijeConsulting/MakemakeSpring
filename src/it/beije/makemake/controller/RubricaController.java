@@ -1,8 +1,6 @@
 package it.beije.makemake.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.makemake.Contatto;
-import it.beije.makemake.repository.ContattoRepository;
+import it.beije.makemake.service.ContattoService;
 
 
 //@Controller
 public class RubricaController {
 	
 	@Autowired
-	private ContattoRepository contattoRepository;
+	private ContattoService contattoService;
 	
 	
 	@RequestMapping(path = "/vedi_contatto", method = RequestMethod.GET)
@@ -32,17 +30,7 @@ public class RubricaController {
 		System.out.println("GET vedi_contatto : " + id);
 		
 		List<Contatto> contatti = null;
-		if (id != null) {
-			contatti = new ArrayList<Contatto>(1);
-			Optional<Contatto> contatto = contattoRepository.findById(id);
-			if (contatto.isPresent()) contatti.add(contatto.get());
-//		} else if (email != null) {
-//			contatti = contattoRepository.findByEmail(email);
-//		} else if (email != null || name != null) {
-//			contatti = contattoRepository.findByNameOrEmail(name, email);
-		} else if (name != null) {
-			contatti = contattoRepository.searchByFirstLettersOfName(name);
-		}
+		contattoService.searchContatti(id, name, email);
 		
 		model.addAttribute("numContatti", contatti.size());
 		model.addAttribute("contatti", contatti);
@@ -67,7 +55,8 @@ public class RubricaController {
 		System.out.println("contatto : " + contatto);
 		
 		//... eventuali controlli e/o condizioni
-		contattoRepository.save(contatto);
+		//contattoRepository.save(contatto);
+		contattoService.save(contatto);
 		
 		model.addAttribute("contatto", contatto);
 		
