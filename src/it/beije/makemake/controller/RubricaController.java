@@ -22,7 +22,7 @@ public class RubricaController {
 	@Autowired
 	private ContattoRepository contattoRepository;
 	
-	
+
 	@RequestMapping(path = "/vedi_contatto", method = RequestMethod.GET)
 	public String contatto(Model model,
 			@RequestParam(required = false) Integer id,
