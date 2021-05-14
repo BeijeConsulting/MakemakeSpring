@@ -78,10 +78,10 @@ public class RubricaController {
 		System.out.println("POST contatto");
 		System.out.println("Ricerca di : " + name + " ; " + surname);
 
-		List<Contatto> delcontatti = contattoRepository.findByNameAndSurname(name, surname);
+//		List<Contatto> delcontatti = contattoRepository.findByNameAndSurname(name, surname);
 
-		model.addAttribute("contattirimossi", delcontatti);
-		contattoRepository.deleteAll(delcontatti);
+//		model.addAttribute("contattirimossi", delcontatti);
+//		contattoRepository.deleteAll(delcontatti);
 
 		return "contatti_rimossi";
 	}
