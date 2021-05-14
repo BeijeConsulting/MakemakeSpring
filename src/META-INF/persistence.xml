@@ -3,13 +3,20 @@
 	<persistence-unit name="MakemakeSpring">
 
 		<class>it.beije.makemake.Contatto</class>
+		<class>it.beije.makemake.User</class>
+		<class>it.beije.makemake.Product</class>
+		<class>it.beije.makemake.Order</class>
+		<class>it.beije.makemake.Order_Item</class>
+		
+		
+		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/makemake"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.password" value="beije03"/>
+			<property name="javax.persistence.jdbc.password" value="Beije04"/>
 		</properties>
 
 	</persistence-unit>
