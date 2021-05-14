@@ -4,6 +4,10 @@
 
 	
 		<class> it.beije.makemake.entity.Contatto</class>
+		<class>it.beije.makemake.entity.User</class>
+		<class>it.beije.makemake.entity.Order</class>
+		<class>it.beije.makemake.entity.Order_item</class>
+		
 	
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
