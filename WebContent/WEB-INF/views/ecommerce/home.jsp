@@ -11,7 +11,14 @@
     <title>Homepage</title>
 </head>
 <body>
-<h6>Welcome, </h6>
+
+<h3>Welcome, ${user.name}</h3>
+<br>
+<form action="${pageContext.request.contextPath}/ecommerce/orders">
+    <input type="submit" value="View orders">
+</form>
+
+
 
 </body>
 </html>

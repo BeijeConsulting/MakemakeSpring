@@ -21,7 +21,7 @@ public class User {
 
     private String surname;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="id_user")
     private List<Order> orders;
 

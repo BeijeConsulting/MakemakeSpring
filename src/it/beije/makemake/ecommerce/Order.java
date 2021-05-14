@@ -4,6 +4,8 @@ package it.beije.makemake.ecommerce;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 @Entity
@@ -82,5 +84,12 @@ public class Order {
                 "Order id: " + id + "\n"
                         + "Total price: " + total + "\n";
     }
+
+
+    public String getDateString() {
+        return getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+    }
+
+
 
 }
