@@ -36,12 +36,13 @@ public class RubricaController {
 			contatti = new ArrayList<Contatto>(1);
 			Optional<Contatto> contatto = contattoRepository.findById(id);
 			if (contatto.isPresent()) contatti.add(contatto.get());
-//		} else if (email != null) {
-//			contatti = contattoRepository.findByEmail(email);
-//		} else if (email != null || name != null) {
-//			contatti = contattoRepository.findByNameOrEmail(name, email);
-		} else if (name != null) {
-			contatti = contattoRepository.searchByFirstLettersOfName(name);
+		} else if (email != null) {
+			contatti = contattoRepository.findByEmail(email);
+		} else /*if (email != null || name != null) {
+			contatti = contattoRepository.findByNameOrEmail(name, email);
+		} else*/ if (name != null) {
+//			contatti = contattoRepository.searchByFirstLettersOfName(name);
+			contatti = contattoRepository.findByName(name);
 		}
 		
 		model.addAttribute("numContatti", contatti.size());

@@ -14,7 +14,9 @@ import it.beije.makemake.Contatto;
 public interface ContattoRepository extends JpaRepository<Contatto, Integer> {
 	
 	public List<Contatto> findByEmail(String email);
-
+	
+	public List<Contatto> findByName ( String name);
+ 
 	//SELECT * FROM rubrica WHERE name= ... OR email = ...
 	public List<Contatto> findByNameOrEmail(String name, String email);
 

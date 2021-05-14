@@ -6,12 +6,6 @@
 
 		<class>it.beije.makemake.Contatto</class>
 
-		<class>it.beije.makemake.esercizi.controller.User</class>
-		<class>it.beije.makemake.esercizi.controller.Product</class>
-		<class>it.beije.makemake.esercizi.controller.Order_Item</class>
-		<class>it.beije.makemake.esercizi.controller.Order</class>
-		
-
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
