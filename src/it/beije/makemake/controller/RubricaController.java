@@ -20,7 +20,7 @@ public class RubricaController {
 	@Autowired
 	private ContattoService contattoService;
 	
-	
+
 	@RequestMapping(path = "/vedi_contatto", method = RequestMethod.GET)
 	public String contatto(Model model,
 			@RequestParam(required = false) Integer id,
@@ -69,20 +69,20 @@ public class RubricaController {
 		return "cancella_contatto";
 	}
 	
-	@Transactional
-	@RequestMapping(path = "/delete", method = RequestMethod.POST)
-	public String delete(Model model, @RequestParam(required = false) String name,
-			@RequestParam(required = false) String surname) {
-
-		System.out.println("POST contatto");
-		System.out.println("Ricerca di : " + name + " ; " + surname);
-
-		List<Contatto> delcontatti = contattoRepository.findByNameAndSurname(name, surname);
-
-		model.addAttribute("contattirimossi", delcontatti);
-		contattoRepository.deleteAll(delcontatti);
-
-		return "contatti_rimossi";
-	}
+//	@Transactional
+//	@RequestMapping(path = "/delete", method = RequestMethod.POST)
+//	public String delete(Model model, @RequestParam(required = false) String name,
+//			@RequestParam(required = false) String surname) {
+//
+//		System.out.println("POST contatto");
+//		System.out.println("Ricerca di : " + name + " ; " + surname);
+//
+//		List<Contatto> delcontatti = contattoRepository.findByNameAndSurname(name, surname);
+//
+//		model.addAttribute("contattirimossi", delcontatti);
+//		contattoRepository.deleteAll(delcontatti);
+//
+//		return "contatti_rimossi";
+//	}
 
 }

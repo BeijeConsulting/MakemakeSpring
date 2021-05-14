@@ -1,4 +1,5 @@
 package it.beije.makemake;
+
 import java.math.BigDecimal;
 
 import javax.persistence.Column;

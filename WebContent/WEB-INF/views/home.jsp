@@ -11,6 +11,8 @@ Benvenuto<br>
 <br>
 username: ${username}<br>
 password: ${password}<br>
+name: ${name}<br>
+surname: ${surname}<br>
 
 </body>
 </html>
