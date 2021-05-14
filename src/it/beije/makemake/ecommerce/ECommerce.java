@@ -1,15 +1,15 @@
 package it.beije.makemake.ecommerce;
 
-import it.beije.makemake.database.JPAManager;
-
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
+import it.beije.makemake.database.JPAManager;
 
 public class ECommerce {
 

@@ -9,14 +9,28 @@
 <html>
 <head>
     <title>Login page</title>
+    <style type="text/css">
+    .error{
+    	color:red;
+    }
+     .notice{
+    	color:yellow;
+    }
+    </style>
 </head>
 <body>
-${error}
+
+<h1 class = "error">${error}</h1>
+<h1 class = "notice">${notice}</h1>
+
 <form action="${pageContext.request.contextPath}/ecommerce/login" method="post">
 	
-    <input type="text" name="username"><br><br>
-    <input type="password" name="password"><br><br>
-    <input type="submit">
+  <label for="username">Username:</label><br>
+  <input type="text" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" name="password"><br><br>
+  <input type="submit" value="Submit">
+	 <h5>Non sei registrato ? Puoi farlo <a href= '${pageContext.request.contextPath}/ecommerce/registration'>  qui</a></h5>
 </form>
 
 </body>

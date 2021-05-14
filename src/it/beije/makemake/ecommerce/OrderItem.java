@@ -17,7 +17,19 @@ public class OrderItem {
     @Column(name="id_product")
     private Integer idProduct;
 
-    private BigDecimal price;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private Product product;
+    
+    public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	private BigDecimal price;
 
     private Integer quantity;
 

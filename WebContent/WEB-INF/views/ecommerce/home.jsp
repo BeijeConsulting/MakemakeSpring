@@ -17,6 +17,9 @@
 <form action="${pageContext.request.contextPath}/ecommerce/orders">
     <input type="submit" value="View orders">
 </form>
+<form action="${pageContext.request.contextPath}/ecommerce/logout">
+    <input type="submit" value="Logout">
+</form>
 
 
 

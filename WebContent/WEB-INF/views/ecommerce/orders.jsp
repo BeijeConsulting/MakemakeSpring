@@ -31,6 +31,7 @@
   <title>Orders</title>
 </head>
 <body>
+<h1>${error}</h1>
 <h1>These are your orders:</h1>
 <table>
   <tr>
@@ -46,7 +47,7 @@
     <td>${order.dateString}</td>
     <td>${order.status}</td>
     <td>${order.total}</td>
-    <td><a href="orderdetails.jsp?orderId=${order.id}">
+    <td><a href="order_details?orderId=${order.id}">
       <button>View order details</button>
     </a></td>
   </tr>
