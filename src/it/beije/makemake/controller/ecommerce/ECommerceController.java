@@ -33,7 +33,7 @@ public class ECommerceController {
     @RequestMapping(path="/ecommerce/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
         if (username != null && password != null) {
-            User user = userRepository.findByUsernameOrPassword(username, password);
+            User user = userRepository.findByUsernameAndPassword(username, password);
             if (user == null) {
                 model.addAttribute("error", "Check your username or password");
                 return "login";

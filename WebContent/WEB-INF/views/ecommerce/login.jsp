@@ -13,8 +13,9 @@
 <body>
 ${error}
 <form action="${pageContext.request.contextPath}/ecommerce/login" method="post">
-    <input type="text" name="username">
-    <input type="password" name="password">
+	
+    <input type="text" name="username"><br><br>
+    <input type="password" name="password"><br><br>
     <input type="submit">
 </form>
 
