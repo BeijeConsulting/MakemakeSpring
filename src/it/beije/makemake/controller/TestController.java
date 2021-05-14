@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.beije.makemake.Contatto;
+
 
 @Controller
 public class TestController {
@@ -40,13 +42,18 @@ public class TestController {
 	}
 
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam String username, @RequestParam String password, Model model) {
+	public String login(@RequestParam String username,
+			@RequestParam(name = "pwd", required = false) String password,
+			@RequestParam int number,
+			Model model) {
 		System.out.println("POST login");
 		
 //		String username = request.getParameter("username");
 //		String password = request.getParameter("password");
 		System.out.println("username : " + username);
 		System.out.println("password : " + password);
+//		int number = Integer.parseInt(request.getParameter("password"));
+		System.out.println("number : " + number);
 		
 		if (username == null || username.length() == 0 || password == null || password.length() == 0) {
 			model.addAttribute("errore", "<h6 style='color:red'>INSERIRE LE CREDENZIALI</h6>");
@@ -59,6 +66,5 @@ public class TestController {
 		
 		return "home";
 	}
-
 
 }
