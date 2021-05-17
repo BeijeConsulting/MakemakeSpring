@@ -96,5 +96,65 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", brand=" + brand + ", desc=" + description + ", image=" + image + ", qunatity=" + quantity + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((image == null) ? 0 : image.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (brand == null) {
+			if (other.brand != null)
+				return false;
+		} else if (!brand.equals(other.brand))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (image == null) {
+			if (other.image != null)
+				return false;
+		} else if (!image.equals(other.image))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		if (quantity == null) {
+			if (other.quantity != null)
+				return false;
+		} else if (!quantity.equals(other.quantity))
+			return false;
+		return true;
+	}
 	
 }
