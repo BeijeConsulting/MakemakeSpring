@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach items="${prodotti}" var="prodotto">
-name: ${prodotto.name}<br>
-brand: ${prodotto.brand}<br>
-price: ${prodotto.price}<br>
-desc: ${prodotto.desc}<br><br>
+<c:forEach items="${ordini}" var="ordine">
+date: ${ordine.date}<br>
+userId: ${ordine.userId}<br>
+status: ${ordine.status}<br>
+total: ${ordine.total}<br><br>
 </c:forEach>
 
 

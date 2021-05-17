@@ -29,6 +29,9 @@ public class Product {
 	@Column
 	private String name;
 	
+	@Column
+	private Integer quantity;
+	
 	@Column (name = "description")
 	private String desc;
 
@@ -75,6 +78,13 @@ public class Product {
 		this.desc = desc;
 	}
 	
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 	
 	
 	public String toString() {

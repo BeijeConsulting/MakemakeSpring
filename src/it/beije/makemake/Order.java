@@ -53,11 +53,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public Integer getId_User() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setId_User(Integer id_user) {
+	public void setUserId(Integer id_user) {
 		this. userId =  id_user;
 	}
 	

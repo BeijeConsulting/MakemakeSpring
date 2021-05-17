@@ -34,22 +34,22 @@ Ciao ${User.name}, benvenuto nel nostro Ecommerce!!!
 
 
 	
-	<form action="menuEcommerce.jsp" method="POST" >
-		<p>Scegli l'operazione :</p>
- 	 	
- 	 	<input type="radio" id="visualizza" name="operazione" value="visualizza">
- 		<label for="visualizza">Visualizza Prodotti</label><br>
-  		<input type="radio" id="ricerca" name="operazione" value="ricerca">
-  		<label for="ricerca">Ricerca un prodotto</label><br>
-  		<input type="radio" id="aggiungi" name="operazione" value="aggiungi">
-  		<label for="aggiungi">Visualizza un ordine</label><br>
+	<ul>
+	<li>
+	<a href="viewproduct">Visualizza Prodotti</a>
+	</li>
+	<li>
+	<a href="vieworder">Visualizza Ordini</a>
+	</li>
+	<li>
+	<a href="createorder">Effettua un Ordine</a>
+	</li>
+	</ul>
 		
 		
 		
 		
-		<input type="submit" value ="Submit">
-	</form>
-	<a href="getLogin"> torna alla login</a>
+	<a href="logOut"> LOGOUT</a>
 </DIV>
 </TD>
 </TR>

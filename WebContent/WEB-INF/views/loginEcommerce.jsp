@@ -20,7 +20,7 @@ ${error}
   <label for="password">password:</label><br>
   <input type="password" name="password"><br><br>
   <input type="submit" value="Submit"><br><br>
-  <a href="registrazioneEcommerce.jsp">Clicca qui per registrati</a>
+  <a href="register">Clicca qui per registrarti</a>
 </form> 
 
 </body>
