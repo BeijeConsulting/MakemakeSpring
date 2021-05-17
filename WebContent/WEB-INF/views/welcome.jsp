@@ -11,6 +11,8 @@
 
 
 <h1>BENVENUTO !!!</h1>
+${errore}
 <a href= "login_page" > [Login] </a>
+<a href= "product_page" > [Visualizza Prodotti] </a>
 </body>
 </html>

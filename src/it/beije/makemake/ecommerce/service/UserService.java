@@ -39,4 +39,17 @@ public class UserService {
 		}
 		return "view_orders";
 	}
+	
+	public String logout(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		
+		if(user == null) {
+			model.addAttribute("errore", "Utente non loggato non può fare logout");
+		}else {
+			session.setAttribute("user", null);
+			model.addAttribute("errore", "Arrivederci");
+		}
+		
+		return "welcome";
+	}
 }

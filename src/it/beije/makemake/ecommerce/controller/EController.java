@@ -37,7 +37,13 @@ public class EController {
 	
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam(required = true) String username, @RequestParam(required = true) String pwd, Model model , HttpSession session) {	
-		return userService.login(username, pwd, model, session);
+		User user = (User) session.getAttribute("user");
+		if(user == null) {
+			return userService.login(username, pwd, model, session);
+		}else {
+			model.addAttribute("errore", "Non puoi fare il login se sei già loggato");
+			return "welcome";
+		}
 	}
 	@RequestMapping(path = "/product_page", method = RequestMethod.GET)
 	public String getProductPage(Model model ) {
@@ -58,7 +64,7 @@ public class EController {
 	}
 	
 	@RequestMapping(path = "/logout_page", method = RequestMethod.GET)
-	public String getLogoutPage() {
-		return "welcome";
+	public String getLogoutPage(Model model, HttpSession session) {
+		return userService.logout(session, model);
 	}
 }
