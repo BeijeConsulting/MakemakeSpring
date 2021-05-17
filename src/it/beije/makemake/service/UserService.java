@@ -3,6 +3,7 @@ package it.beije.makemake.service;
 import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
 import it.beije.makemake.entity.User;
@@ -39,6 +40,25 @@ public class UserService {
 			} catch (PersistenceException e) {
 				throw new PersistenceException("Esiste già un utente registrato con questa username");
 			}
+		}
+		return user;
+	}
+
+	public User modifyUser(User user, String name, String surname, String username, String password) {
+		if ((name == null || name.trim().length() == 0) && (surname == null || surname.trim().length() == 0)
+				&& (username == null || username.trim().length() == 0)
+				&& (password == null || password.trim().length() == 0)) {
+			return user;
+		}
+		user = userRepository.findById(user.getId()).get();
+		user.setName((name == null || name.trim().length() == 0) ? user.getName() : name);
+		user.setSurname((surname == null || surname.trim().length() == 0) ? user.getSurname() : surname);
+		user.setUsername((username == null || username.trim().length() == 0) ? user.getUsername() : username);
+		user.setPassword((password == null || password.trim().length() == 0) ? user.getPassword() : password);
+		try {
+			user = userRepository.save(user);
+		} catch (JpaSystemException e) {
+			throw new PersistenceException("Esiste già un utente registrato con questa username");
 		}
 		return user;
 	}

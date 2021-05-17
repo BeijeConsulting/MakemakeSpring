@@ -16,8 +16,8 @@
 	<h3>Benvenuto, ${displayName}</h3>
 	<a href=''>Visualizza i prodotti</a><br>
 	<a href=''>Il mio carrello</a><br>
-	<a href='orders.jsp'>I miei ordini</a><br>
-	<a href='modifyAccount.jsp'>Modifica profilo</a><br>
+	<a href=''>I miei ordini</a><br>
+	<a href='modifica_utente'>Modifica profilo</a><br>
 	<a href=''>Elimina profilo</a><br><!-- actually "disabilita" il profilo -->
 	<a href="logout">Esci</a><br>
 </body>
