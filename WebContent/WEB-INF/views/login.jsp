@@ -15,8 +15,6 @@ ${errore}
   <input type="text" name="username"><br>
   <label for="password">password:</label><br>
   <input type="password" name=pwd><br><br>
-  <label for="number">number:</label><br>
-  <input type="text" name="number"><br><br>
   <input type="submit" value="Submit">
 </form> 
 
