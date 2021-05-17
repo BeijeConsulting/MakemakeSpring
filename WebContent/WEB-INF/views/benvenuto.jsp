@@ -14,14 +14,9 @@ if (loggedUser == null)
 	response.sendRedirect("login_ecommerce");
 %>
 	<h1>BENVENUTO!!!</h1>
-	<form action="benvenuto" method="POST">
-		<input type="radio" name="operazione" value="visualizza_ordini"> 
-			<label for="visualizza">Visualizza Ordini</label><br>
-		<input type="radio" name="operazione" value="ricerca">
-			<label for="ricerca">Ricerca un prodotto</label><br>
-		<input type="radio" name="operazione" value="aggiungi"> 
-			<label for="aggiungi">Visualizza un ordine</label><br> 
-		<input type="submit" value="Submit">
-	</form>
+	<a href="http://localhost:8080/MakemakeSpring/visualizza_ordini">Visualizza Ordini</a><br><br>
+	<a href="http://localhost:8080/MakemakeSpring/visualizza_utente">Visualizza dettagli utente</a><br><br>
+	<a href="http://localhost:8080/MakemakeSpring/visualizza_prodotti">Visualizza prodotti</a><br><br>
+	
 </body>
 </html>

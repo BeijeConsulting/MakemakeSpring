@@ -9,4 +9,5 @@ import it.beije.makemake.Order;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 	public List<Order> findByUserId(Integer userId);
+	
 }
