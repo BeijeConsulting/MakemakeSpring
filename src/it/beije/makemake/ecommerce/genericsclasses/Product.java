@@ -56,10 +56,10 @@ public class Product {
 			}
 			
 			
-			public String getDesc() {
+			public String getDescr() {
 				return descr;
 			}		
-			public void setDesc(String descr) {
+			public void setDescr(String descr) {
 				this.descr = descr;
 			}
 			
