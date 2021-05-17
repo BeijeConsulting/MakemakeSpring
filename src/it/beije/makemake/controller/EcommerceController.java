@@ -24,7 +24,7 @@ public class EcommerceController {
 	
 
 	@RequestMapping(path ="/login", method = RequestMethod.GET)
-	public String registrati() {
+	public String registrati(Http) {
 		System.out.println("Post login");
 		return "login";
 	}
@@ -33,6 +33,7 @@ public class EcommerceController {
 	public String menuOperazioni() {
 		System.out.println("Get menu_operazioni");
 		return "menu_operazione";
+		String [] ciao;
 	}
 	
 	
