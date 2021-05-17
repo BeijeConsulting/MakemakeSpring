@@ -3,10 +3,15 @@
 	<persistence-unit name="MakemakeSpring">
 
 		<class>it.beije.makemake.Contatto</class>
-		<class>it.beije.makemake.ecommerce.genericsclasses.User</class>
-		<class>it.beije.makemake.ecommerce.genericsclasses.Order</class>
-		<class>it.beije.makemake.ecommerce.genericsclasses.OrderItem</class>
-		<class>it.beije.makemake.ecommerce.genericsclasses.Product</class>
+		<class>it.beije.makemake.entity.User</class>
+		<class>it.beije.makemake.entity.Product</class>
+		<class>it.beije.makemake.entity.Order</class>
+		<class>it.beije.makemake.entity.OrderItem</class>
+
+		
+		
+		
+		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
