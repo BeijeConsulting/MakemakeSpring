@@ -22,4 +22,11 @@ public class ProductController {
 		model.addAttribute("products", products);
 		return "mostra_prodotti";
 	}
+
+	@RequestMapping(path = "/dettaglio_prodotto", method = RequestMethod.GET)
+	public String dettaglioProdotto(Model model) {
+		// TODO gestire il path non come dettaglio_prodotto, ma come
+		// dettaglio_prodotto?id=XX
+		return "dettaglio_prodotto";
+	}
 }
