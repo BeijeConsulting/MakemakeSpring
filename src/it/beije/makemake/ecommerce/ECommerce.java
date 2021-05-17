@@ -66,7 +66,7 @@ public class ECommerce {
             }
             OrderItem orderItem = new OrderItem();
             orderItem.setIdOrder(orderId);
-            orderItem.setIdProduct(productId);
+            orderItem.setProduct(product);
             orderItem.setQuantity(products.get(productId));
             orderItem.setPrice(product.getPrice());
             entityManager.persist(orderItem);
@@ -100,8 +100,7 @@ public class ECommerce {
     private static String getOrderItemsInfo(List<OrderItem> orderItems) {
         StringBuilder output = new StringBuilder();
         for (OrderItem orderItem : orderItems) {
-            Integer productId = orderItem.getIdProduct();
-            Product product = getProduct(productId);
+            Product product = orderItem.getProduct();
             output.append(product.toShortString());
             output.append("Price (at the time of purchase) : " + orderItem.getPrice());
             output.append("Ordered amount: " + orderItem.getQuantity() + "\n");

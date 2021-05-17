@@ -14,11 +14,8 @@ public class OrderItem {
     @Column(name="id_order")
     private Integer idOrder;
 
-    @Column(name="id_product")
-    private Integer idProduct;
-
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_product", referencedColumnName = "id")
     private Product product;
     
     public Product getProduct() {
@@ -49,13 +46,7 @@ public class OrderItem {
         this.idOrder = idOrder;
     }
 
-    public Integer getIdProduct() {
-        return idProduct;
-    }
 
-    public void setIdProduct(Integer idProduct) {
-        this.idProduct = idProduct;
-    }
 
     public BigDecimal getPrice() {
         return price;

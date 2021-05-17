@@ -20,8 +20,8 @@ public class OrderService {
 	public String orderDetails(Integer orderId, Model model) {
 		Optional<Order> orderOptional = orderRepository.findById(orderId);
     	if(orderOptional.isPresent()) {
-    		List<OrderItem> orderitems = orderOptional.get().getOrderItems();
-    		model.addAttribute("orderItems",orderitems);
+    		List<OrderItem> orderItems = orderOptional.get().getOrderItems();
+    		model.addAttribute("orderItems",orderItems);
     		return "order_details";
     	}
     	model.addAttribute("error","id of the order not present ");
