@@ -19,11 +19,11 @@
     tr:nth-child(even) {
       background-color: #dddddd;
     }
-    .error{
-        color:red;
+        .error{
+    	color:red;
     }
-    .notice{
-        color:yellow;
+     .notice{
+    	color:yellow;
     }
   </style>
 <meta charset="ISO-8859-1">
@@ -57,9 +57,13 @@
 </c:forEach>
 </table>
 <h3 class="notice">${notice}</h3>
+ <h3 class="error">${error}</h3>
 <form action="${pageContext.request.contextPath}/ecommerce/sendOrder">
     <input type="submit" value="Send order">
-</form>
 
+</form><br>
+ <a href="${pageContext.request.contextPath}/ecommerce/">
+            <button>Home</button>
+        </a>
 </body>
 </html>

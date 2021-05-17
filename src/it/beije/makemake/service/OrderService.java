@@ -1,8 +1,9 @@
 package it.beije.makemake.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,6 @@ import org.springframework.ui.Model;
 import it.beije.makemake.ecommerce.Order;
 import it.beije.makemake.ecommerce.OrderItem;
 import it.beije.makemake.repository.OrderRepository;
-
-import javax.servlet.http.HttpSession;
 
 @Service
 public class OrderService {
@@ -31,5 +30,9 @@ public class OrderService {
         return "orders";
 	}
 
+	@Transactional
+	public void save(Order order) {
+		orderRepository.save(order);
+	}
 
 }

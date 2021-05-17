@@ -1,7 +1,13 @@
 package it.beije.makemake.ecommerce;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashMap;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Product {
@@ -86,5 +92,15 @@ public class Product {
         return
                 "name: " + name + "\n"
                         + "brand: " + brand + "\n";
+    }
+    
+    public int getCurrentQuantity(HashMap<Integer,Integer>cart) {
+    	if(cart!=null ) {
+    		Integer amount = cart.get(id);
+    		if(amount != null )
+    			return quantity-amount;
+    	}
+    	
+    	return quantity;
     }
 }

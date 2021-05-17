@@ -1,6 +1,7 @@
 package it.beije.makemake.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,7 +18,7 @@ import it.beije.makemake.repository.UserRepository;
 public class UserService {
 	  @Autowired
 	    private UserRepository userRepository;
-
+	
 	  public String login(String username, String password, Model model, HttpSession session) {
 			if (username != null && password != null) {
 	            User user = userRepository.findByUsernameAndPassword(username, password);
@@ -78,6 +79,8 @@ public class UserService {
 			return "register" ;
 		}
 		
-	
+		public	Optional< User> findById(Integer id) {
+			return userRepository.findById(id);
+		}
 		
 }
