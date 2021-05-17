@@ -43,9 +43,12 @@
     <td>${product.price}</td>
     <td>${product.quantity}</td>
     <td>
-                <form action="${pageContext.request.contextPath}/buyProduct?productId=${product.id}" method="get">
-                    <input type="submit" value="Buy">
-                </form>
+        <a href="${pageContext.request.contextPath}/ecommerce/buyProduct?productId=${product.id}">
+            <button>Buy</button>
+        </a>
+<%--                <form action="">--%>
+<%--                    <input type="submit" value="Buy">--%>
+<%--                </form>--%>
             </td>
   </tr>
 </c:forEach>
