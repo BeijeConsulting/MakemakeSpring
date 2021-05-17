@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Index</title>
+<title>Insert title here</title>
 </head>
 <body>
+Benvenuto nell'Ecommerce Beije<br>
+
+  <a href="login">effettua il login</a>
+  <a href="registrazioneEcommerce.jsp">se non hai un account, registrati</a>
 
 </body>
 </html>
