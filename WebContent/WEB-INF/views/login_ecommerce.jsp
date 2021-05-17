@@ -8,7 +8,7 @@
 </head>
 <body>
 <CENTER><H1>Ecommerce </H1>
-
+${errore}
 <form action="login_ecommerce" method="post">
   <label for="username">username:</label><br>
   <input type="text" name="username"><br>

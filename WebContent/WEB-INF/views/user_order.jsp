@@ -19,12 +19,16 @@ if (loggedUser == null)
 	<br>
 numero ordini effettuati : ${numOrdini}<br>
 <br>
+<form action="visualizza_prodotti" method="POST">
 <c:forEach items="${ordini}" var="ordine">
 id: ${ordine.id}<br>
 date: ${ordine.date}<br>
 status: ${ordine.status}<br>
 total: ${ordine.total}<br>
+<input type="radio" name="idOrdine" value=${ordine.id}> 
 <br><br><br>
 </c:forEach>
+<input type="submit" value="Submit">
+	</form>
 </body>
 </html>
