@@ -2,6 +2,7 @@ package it.beije.makemake;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Order {
 	private Integer id;
 	
 	@Column
-	private LocalDateTime date;
+	private LocalDate date;
 	
 	@Column(name = "id_user")
 	private Integer userId;
@@ -35,7 +36,7 @@ public class Order {
 	private String status;
 	
 	@Column
-	private BigDecimal total;
+	private double total;
 	
 	@OneToMany(cascade=CascadeType.ALL/*, fetch=FetchType.EAGER*/)
 	@JoinColumn(name="id_order")
@@ -50,12 +51,12 @@ public class Order {
 	}
 
 	
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
-		this.date = date;
+	public void setDate(LocalDate localDate) {
+		this.date = localDate;
 	}
 	
 
@@ -77,11 +78,11 @@ public class Order {
 	}
 	
 	
-	public BigDecimal getTotal() {
+	public double getTotal() {
 		return total;
 	}
 
-	public void setTotal(BigDecimal total2) {
+	public void setTotal(double total2) {
 		this.total = total2;
 	}
 
