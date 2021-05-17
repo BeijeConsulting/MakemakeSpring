@@ -14,7 +14,7 @@
 	User user = (User) session.getAttribute("loggedUser");
 	%>
 	<h3>Benvenuto, ${displayName}</h3>
-	<a href=''>Visualizza i prodotti</a><br>
+	<a href='mostra_prodotti'>Visualizza i prodotti</a><br>
 	<a href=''>Il mio carrello</a><br>
 	<a href=''>I miei ordini</a><br>
 	<a href='modifica_utente'>Modifica profilo</a><br>
