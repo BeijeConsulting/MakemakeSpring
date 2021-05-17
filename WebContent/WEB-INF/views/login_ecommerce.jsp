@@ -9,7 +9,7 @@
 <body>
 
 <a>Beije-Shop: inserisci le credenziali</a>
-
+${errore}
 <form action="login" method="POST">
   <label for="username">username:</label><br>
   <input type="text" name="username"><br>

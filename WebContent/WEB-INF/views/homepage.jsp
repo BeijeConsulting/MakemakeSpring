@@ -12,21 +12,17 @@
   <TR>
 <TD>
 <DIV ALIGN="center">
-<h1>BENVENUTO ${username}</h1></DIV>
+<h1>BENVENUTO ${user.username}</h1></DIV>
 <DIV ALIGN="justify">
 
 
-<form action="menuEcommerce" method="POST" >
+
  	 	
- 	 	<input type="radio" id="visualizza" name="operazione" value="visualizza_prodotti">
- 		<label for="visualizza">Visualizza Prodotti</label><br>
-  		<input type="radio" id="ricerca" name="operazione" value="ricerca">
-  		<label for="ricerca">Ricerca un prodotto</label><br>
-  		<input type="radio" id="aggiungi" name="operazione" value="aggiungi">
-  		<label for="aggiungi">Visualizza un ordine</label><br>
-	
-		<input type="submit" value ="Submit">
-	</form>
+ 	 1)<a href="visualizza_prodotti"> visualizza i prodotti</a><br><br>
+  	 2)<a href="ricerca_prodotto"> ricerca prodotto per nome</a><br><br>
+  	 3)<a href="visualizza_ordini"> visualizza gli ordini</a><br><br>
+	 4)<a href="logout">effettua il logout</a><br><br>
+		
 	</DIV>
 </TD>
 </TR>

@@ -7,17 +7,12 @@
 <meta charset="ISO-8859-1">
 <title>Lista dei prodotti</title>
 </head>
-ECCO LA LISTA DEI PRODOTTI DELL'ECOMMERCE BEIJE<br>
+ECCO LA LISTA DEGLI ORDINI EFFETTUATI NELL'ECOMMERCE BEIJE<br>
 <body>
 <Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
-<c:forEach items="${prodotti}" var="prodotto">
-id: ${prodotto.id}<br>
-name: ${prodotto.name}<br>
-brand: ${prodotto.brand}<br>
-description: ${prodotto.desc}<br>
-price: ${prodotto.price}<br>
-quantity: ${prodotto.quantity}<br>
-<br><br><br>
+<c:forEach items="${dettaglio_ordine}" var="dettaglio">
+${dettaglio}<br>
+<br><br>
 </c:forEach>
 
 

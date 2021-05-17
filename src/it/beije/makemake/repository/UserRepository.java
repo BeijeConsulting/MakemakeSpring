@@ -11,4 +11,5 @@ import it.beije.makemake.ecommerce.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> { 
 
+	 public User findByUsernameAndPassword(String username, String password);
 }
