@@ -1,5 +1,6 @@
 package it.beije.makemake.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import it.beije.makemake.ecommerce.Order;
 import it.beije.makemake.ecommerce.OrderItem;
 import it.beije.makemake.repository.OrderRepository;
+
+import javax.servlet.http.HttpSession;
 
 @Service
 public class OrderService {
@@ -27,4 +30,6 @@ public class OrderService {
     	model.addAttribute("error","id of the order not present ");
         return "orders";
 	}
+
+
 }

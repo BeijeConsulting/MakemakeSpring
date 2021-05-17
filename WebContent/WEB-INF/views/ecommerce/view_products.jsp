@@ -19,6 +19,12 @@
     tr:nth-child(even) {
       background-color: #dddddd;
     }
+    .error{
+        color:red;
+    }
+    .notice{
+        color:yellow;
+    }
   </style>
 <meta charset="ISO-8859-1">
 <title>Products</title>
@@ -46,13 +52,14 @@
         <a href="${pageContext.request.contextPath}/ecommerce/buyProduct?productId=${product.id}">
             <button>Buy</button>
         </a>
-<%--                <form action="">--%>
-<%--                    <input type="submit" value="Buy">--%>
-<%--                </form>--%>
             </td>
   </tr>
 </c:forEach>
 </table>
+<h3 class="notice">${notice}</h3>
+<form action="${pageContext.request.contextPath}/ecommerce/sendOrder">
+    <input type="submit" value="Send order">
+</form>
 
 </body>
 </html>
