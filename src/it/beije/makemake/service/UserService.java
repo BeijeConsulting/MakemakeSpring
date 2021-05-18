@@ -45,7 +45,6 @@ public class UserService {
 		return user;
 	}
 
-<<<<<<< HEAD
 	public User modificaUtente(User oldUser, String name, String surname, String username, String password) {
 	User user = null;
 	if (username == null || username.trim().length() == 0 || password == null || password.trim().length() == 0 || 
@@ -65,7 +64,7 @@ public class UserService {
 	}
 	return oldUser;
 	}
-=======
+
 	public User modifyUser(User user, String name, String surname, String username, String password) {
 		if ((name == null || name.trim().length() == 0) && (surname == null || surname.trim().length() == 0)
 				&& (username == null || username.trim().length() == 0)
@@ -85,5 +84,4 @@ public class UserService {
 		return user;
 	}
 
->>>>>>> refs/remotes/origin/ZippoStaibano
 }
