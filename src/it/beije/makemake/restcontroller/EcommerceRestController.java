@@ -1,4 +1,4 @@
-package it.beije.makemake.controller;
+package it.beije.makemake.restcontroller;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import it.beije.makemake.ecommerce.User;
 import it.beije.makemake.service.EcommerceService;
 
 @Controller
-public class EcommerceController {
+public class EcommerceRestController {
 
 	@Autowired
 	private EcommerceService ecommerceService;
@@ -57,15 +57,11 @@ public class EcommerceController {
 	}
 
 	@RequestMapping(path = "/registrazione", method = RequestMethod.POST)
-	public String registrazione(Model model, 
-			@RequestParam(required = false) String username,
-			@RequestParam(required = false) String password,
-			@RequestParam(required = false) String name,
+	public String registrazione(Model model, @RequestParam(required = false) String username,
+			@RequestParam(required = false) String password, @RequestParam(required = false) String name,
 			@RequestParam(required = false) String surname) {
-		if (username == null || username.length() == 0 || 
-				password == null || password.length() == 0 ||
-				name == null || name.length() == 0 ||
-				surname == null || surname.length() == 0) {
+		if (username == null || username.length() == 0 || password == null || password.length() == 0 || name == null
+				|| name.length() == 0 || surname == null || surname.length() == 0) {
 			model.addAttribute("errore", "<h6 style='color:red'>DATI NON VALIDI</h6>");
 			return "registrazione";
 		}
@@ -89,13 +85,12 @@ public class EcommerceController {
 	}
 
 	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
-	public String ricerca_prodotto(Model model,
-			@RequestParam String name) {
+	public String ricerca_prodotto(Model model, @RequestParam String name) {
 		List<Product> productList = ecommerceService.findByName(name);
 		System.out.println("POST ricerca_prodotto");
 		System.out.println(productList);
-		
-		if (productList.size()==0 ||productList==null) {
+
+		if (productList.size() == 0 || productList == null) {
 			model.addAttribute("errore", "<h6 style='color:red'> NESSUN PRODOTTO TROVATO</h6>");
 			System.out.println("errore");
 		}
@@ -103,27 +98,27 @@ public class EcommerceController {
 		return "ricerca_prodotto";
 	}
 
-
 	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
 	public String ricerca_prodotto() {
 		System.out.println("GET ricerca_prodotto");
 		return "ricerca_prodotto";
 	}
-	
+
 	@RequestMapping(path = "/visualizza_ordini", method = RequestMethod.GET)
 	public String visualizza_ordini(HttpServletRequest request) {
 		System.out.println("GET visualizza_ordini");
-		User user=(User)request.getSession().getAttribute("user");
+		User user = (User) request.getSession().getAttribute("user");
 		Integer userId = user.getId();
 		request.getSession().setAttribute("dettaglio_ordine", ecommerceService.getOrderDetails(userId));
-		
+
 		return "visualizza_ordini";
 	}
-	
+
 	@RequestMapping(path = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		System.out.println("GET login_ecommerce");
 		request.getSession().invalidate();
 		return "login_ecommerce";
 	}
+
 }
