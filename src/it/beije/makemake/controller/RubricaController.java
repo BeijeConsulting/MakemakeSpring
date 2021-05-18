@@ -36,6 +36,7 @@ public class RubricaController {
 		
 		List<Contatto> contatti = null;
 
+
 		if (id != null) {
 			contatti = new ArrayList<Contatto>(1);
 			Optional<Contatto> contatto = contattoRepository.findById(id);
@@ -50,6 +51,9 @@ public class RubricaController {
 		}
 
 		contattoService.searchContatti(id, name, email);
+
+
+		contatti = contattoService.searchContatti(id, name, email);
 
 		
 		model.addAttribute("numContatti", contatti.size());
@@ -67,20 +71,20 @@ public class RubricaController {
 		return "form_contatto";
 	}
 
-	@Transactional
-	@RequestMapping(path = "/contatto", method = RequestMethod.POST)
-	public String contatto(Contatto contatto, Model model) {
-		System.out.println("POST contatto");
-		
-		System.out.println("contatto : " + contatto);
-		
-		//... eventuali controlli e/o condizioni
-		//contattoRepository.save(contatto);
-		contattoService.save(contatto);
-		
-		model.addAttribute("contatto", contatto);
-		
-		return "vedi_contatto";
-	}
+//	@Transactional
+//	@RequestMapping(path = "/contatto", method = RequestMethod.POST)
+//	public String contatto(Contatto contatto, Model model) {
+//		System.out.println("POST contatto");
+//		
+//		System.out.println("contatto : " + contatto);
+//		
+//		//... eventuali controlli e/o condizioni
+//		//contattoRepository.save(contatto);
+//		contattoService.save(contatto);
+//		
+//		model.addAttribute("contatto", contatto);
+//		
+//		return "vedi_contatto";
+//	}
 
 }

@@ -34,14 +34,14 @@ public class TestController {
 		return "test";
 	}
 	
-	@RequestMapping(path = "/login", method = RequestMethod.GET)
+	@RequestMapping(path = "/lologin", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("GET login");
 		
 		return "login";
 	}
 
-	@RequestMapping(path = "/login", method = RequestMethod.POST)
+	@RequestMapping(path = "/lologin", method = RequestMethod.POST)
 	public String login(@RequestParam String username,
 			@RequestParam(name = "pwd", required = false) String password,
 			@RequestParam int number,
