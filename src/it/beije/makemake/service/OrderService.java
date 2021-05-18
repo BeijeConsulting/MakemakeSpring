@@ -39,6 +39,7 @@ public class OrderService {
 		double total = 0;
 		Order a = new Order();
 		a.setDate(LocalDate.now());
+		System.out.println(u.getId());
 		a.setUserId(u.getId());
 		a.setStatus("ok");
 		save(a);
