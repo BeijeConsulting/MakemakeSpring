@@ -80,9 +80,9 @@ public class EcommerceController {
 		return "homepage";
 	}
 
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
 	public String ricerca_prodotto(Model model,
-			@RequestParam(required = false) String name) {
+			@RequestParam String name) {
 		List<Product> productList = ecommerceService.findByName(name);
 		System.out.println("POST ricerca_prodotto");
 		System.out.println(productList);
@@ -95,7 +95,7 @@ public class EcommerceController {
 		return "ricerca_prodotto";
 	}
 
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
 	public String ricerca_prodotto() {
 		System.out.println("GET ricerca_prodotto");
 		return "ricerca_prodotto";
@@ -117,31 +117,4 @@ public class EcommerceController {
 		request.getSession().invalidate();
 		return "login_ecommerce";
 	}
-	
-
-<<<<<<< HEAD
-	@RequestMapping(path ="/login", method = RequestMethod.GET)
-	public String registrati(Http) {
-		System.out.println("Post login");
-		return "login";
-	}
-	
-	@RequestMapping(path ="/menu_operazioni", method = RequestMethod.GET)
-	public String menuOperazioni() {
-		System.out.println("Get menu_operazioni");
-		return "menu_operazione";
-		String [] ciao;
-	}
-	
-	
-	
-	@RequestMapping(path ="/", method = RequestMethod.GET)
-	public String welcome() {
-		System.out.println("Get menu_operazioni");
-		return "menu_operazione";
-	}
-	
 }
-=======
-}
->>>>>>> refs/remotes/origin/Castiglioni_DeClaro
