@@ -30,7 +30,7 @@ public class RubricaController {
 		System.out.println("GET vedi_contatto : " + id);
 		
 		List<Contatto> contatti = null;
-		contattoService.searchContatti(id, name, email);
+		contatti = contattoService.searchContatti(id, name, email);
 		
 		model.addAttribute("numContatti", contatti.size());
 		model.addAttribute("contatti", contatti);
@@ -47,20 +47,20 @@ public class RubricaController {
 		return "form_contatto";
 	}
 
-	@Transactional
-	@RequestMapping(path = "/contatto", method = RequestMethod.POST)
-	public String contatto(Contatto contatto, Model model) {
-		System.out.println("POST contatto");
-		
-		System.out.println("contatto : " + contatto);
-		
-		//... eventuali controlli e/o condizioni
-		//contattoRepository.save(contatto);
-		contattoService.save(contatto);
-		
-		model.addAttribute("contatto", contatto);
-		
-		return "vedi_contatto";
-	}
+//	@Transactional
+//	@RequestMapping(path = "/contatto", method = RequestMethod.POST)
+//	public String contatto(Contatto contatto, Model model) {
+//		System.out.println("POST contatto");
+//		
+//		System.out.println("contatto : " + contatto);
+//		
+//		//... eventuali controlli e/o condizioni
+//		//contattoRepository.save(contatto);
+//		contattoService.save(contatto);
+//		
+//		model.addAttribute("contatto", contatto);
+//		
+//		return "vedi_contatto";
+//	}
 
 }
