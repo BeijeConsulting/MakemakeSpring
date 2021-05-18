@@ -9,7 +9,8 @@
 </head>
 <body>
 	<c:forEach items="${products}" var="prodotto">
-	<a href=''>${prodotto.brand} ${prodotto.name}</a><br>
+	<!-- TODO aggiungere id nel href dopo dettaglio prodotto -->
+	<a href='dettaglio_prodotto'>${prodotto.brand} ${prodotto.name}</a><br>
 	Prezzo: ${prodotto.price}€<br>
 	Quantità disponibile: ${prodotto.quantity}<br>
 	</c:forEach>
