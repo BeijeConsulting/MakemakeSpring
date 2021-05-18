@@ -67,4 +67,31 @@ public class UserController {
 		model.addAttribute("displayName", EcommerceUtil.getDisplayName(loggedUser));
 		return "homepage";
 	}
+
+	@RequestMapping(path = "/modifica_utente", method = RequestMethod.GET)
+	public String modificaUtente() {
+		return "modifica_utente";
+	}
+
+	@RequestMapping(path = "/modifica_utente", method = RequestMethod.POST)
+	public String modificaUtente(HttpSession session, Model model, @RequestParam(required = false) String name,
+			@RequestParam(required = false) String surname, @RequestParam(required = false) String username,
+			@RequestParam(required = false) String password) {
+		User loggedUser = (User) session.getAttribute("loggedUser");
+		try {
+			loggedUser = userService.modifyUser(loggedUser, name, surname, username, password);
+		} catch (PersistenceException e) {
+			model.addAttribute("errore", e.getMessage());
+			return "modifica_utente";
+		}
+		session.setAttribute("loggedUser", loggedUser);
+		model.addAttribute("displayName", EcommerceUtil.getDisplayName(loggedUser));
+		return "homepage";
+	}
+	
+	@RequestMapping(path="/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "login";
+	}
 }
