@@ -18,6 +18,11 @@ public class ContattoService {
 	private ContattoRepository contattoRepository;
 
 	
+	public Contatto findById(Integer id) {
+		Optional<Contatto> contatto = contattoRepository.findById(id);
+		return contatto.isPresent() ? contatto.get() : null;
+ 	}
+	
 	public List<Contatto> searchContatti(Integer id, String name, String email) {
 		List<Contatto> contatti = null;
 		if (id != null) {
