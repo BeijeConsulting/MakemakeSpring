@@ -88,9 +88,9 @@ public class EcommerceController {
 		return "homepage";
 	}
 
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
 	public String ricerca_prodotto(Model model,
-			@RequestParam(required = false) String name) {
+			@RequestParam String name) {
 		List<Product> productList = ecommerceService.findByName(name);
 		System.out.println("POST ricerca_prodotto");
 		System.out.println(productList);
@@ -102,8 +102,9 @@ public class EcommerceController {
 		model.addAttribute("lista_prodotti", productList);
 		return "ricerca_prodotto";
 	}
-//ce
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
+
+
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
 	public String ricerca_prodotto() {
 		System.out.println("GET ricerca_prodotto");
 		return "ricerca_prodotto";
@@ -125,6 +126,4 @@ public class EcommerceController {
 		request.getSession().invalidate();
 		return "login_ecommerce";
 	}
-	
-
 }
