@@ -24,7 +24,7 @@ public class ProductController {
 		model.addAttribute("products", products);
 		return "mostra_prodotti";
 	}
-	
+
 	@RequestMapping(path = "/mostra_prodotti", method = RequestMethod.POST)
 	public String mostraProdotti() {
 		return "redirect:dettaglio_prodotto";
