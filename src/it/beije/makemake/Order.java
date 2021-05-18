@@ -1,7 +1,7 @@
 package it.beije.makemake;
 
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,7 +26,7 @@ public class Order {
 	private Integer id;
 	
 	@Column
-	private LocalDate date;
+	private LocalDateTime date;
 	
 	@Column(name = "id_user")
 	private Integer userId;
@@ -49,11 +49,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 
@@ -126,7 +126,7 @@ public class Order {
 	}
 
 	
-	public Order(LocalDate date, Integer userId, String status, double total) {
+	public Order(LocalDateTime date, Integer userId, String status, double total) {
 		
 		this.date = date;
 		this.userId = userId;

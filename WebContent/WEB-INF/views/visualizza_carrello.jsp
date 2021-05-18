@@ -9,6 +9,5 @@
 <body>
 ${ordine}
 ${prodotti}
-
 </body>
 </html>

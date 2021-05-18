@@ -1,6 +1,7 @@
 package it.beije.makemake.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class OrderService {
 	public Order addOrder(User u, List<Carrello> carrello) {
 		double total = 0;
 		Order a = new Order();
-		a.setDate(LocalDate.now());
+		a.setDate(LocalDateTime.now());
 		a.setUserID(u.getId());
 		a.setStatus("ok");
 		save(a);
