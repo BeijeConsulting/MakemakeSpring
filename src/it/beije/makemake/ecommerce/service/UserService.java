@@ -1,58 +1,52 @@
 package it.beije.makemake.ecommerce.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import it.beije.makemake.ecommerce.entity.Order;
-import it.beije.makemake.ecommerce.entity.OrderItem;
 import it.beije.makemake.ecommerce.entity.User;
 import it.beije.makemake.ecommerce.repository.UserRepository;
 
+
 @Service
 public class UserService {
-	
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository  userRepository;
 	
 	public String login(String username, String password, Model model, HttpSession session) {
-		
-		Optional<User> user = userRepository.findByUsername(username);
-		
-		if(user.isPresent()) {
-			User userFromDB = user.get();
-			
-			if(userFromDB.getUsername().equals(username) &&
-					userFromDB.getPassword().equals(password)) {
-				model.addAttribute("user", userFromDB);
-				return "home";
-			}else {
-				model.addAttribute("errore", "Username o Password errati");
-				return "login";
-			}
-		}else {
-			model.addAttribute("errore", "Username insesistente");
-			return "login";
-		}
+	Optional<User> user=userRepository.findByUsernameAndPassword(username, password);
+	if(user.isPresent()) {
+		session.setAttribute("user", user.get());
+		return "home";
+	}else
+		model.addAttribute("errore", "Credenziali errate.");
+		return "login";
 	}
 	
-	public String viewOrders(User user, Model model) {
-		List<Order> orders = user.getOrderlist();
-		HashMap<Order, List<OrderItem>> orderMap = new HashMap<Order, List<OrderItem>>();
+	public String getOrderList(User user,Model model) {
+			
+		List<Order> lista= user.getOrderlist();
+		if(!(lista.isEmpty())){
+			model.addAttribute("orders", lista);
+		}else {
+			model.addAttribute("errore","Nessun ordine effetuato");
+		}
+		return "view_orders";
+	}
+	
+	public String logout(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
 		
-		for(Order o : orders) {
-			orderMap.put(o, o.getOrderItemList());
+		if(user == null) {
+			model.addAttribute("errore", "Utente non loggato non può fare logout");
+		}else {
+			session.setAttribute("user", null);
+			model.addAttribute("errore", "Arrivederci");
 		}
 		
-		model.addAttribute("orderMap", orderMap);
-		
-		return "view_orders";
-		
+		return "welcome";
 	}
 }

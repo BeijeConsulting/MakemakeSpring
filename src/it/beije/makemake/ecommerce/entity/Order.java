@@ -1,11 +1,13 @@
 package it.beije.makemake.ecommerce.entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
 
+import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,39 +15,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
 @Entity
-@Table(name = "`order`")
+@Table(name = "\"order\"")
 public class Order {
+
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "date")
-	private LocalDateTime date;
+	@Column
+	private LocalDate date;
 	
 	@Column(name = "id_user")
 	private Integer userId;
 	
-	@Column(name = "status")
+
+	@Column
 	private String status;
 	
-	@Column(name = "total")
-	private Double total;
+	@Column
+	private double total;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="id_order")
+	private List<OrderItem> ordersItem;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_order")
-	private List<OrderItem> orderItemList;
-	
-	public List<OrderItem> getOrderItemList(){
-		return orderItemList;
-	}
-	
-	public void setOrderItemList(List<OrderItem> orderItemList) {
-		this.orderItemList = orderItemList;
-	}
 	
 	public Integer getId() {
 		return id;
@@ -55,25 +51,25 @@ public class Order {
 		this.id = id;
 	}
 
-	
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
-	
+
 	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+
+	public void setUserID(Integer userID) {
+		this.userId = userID;
 	}
 
-	
+
 	public String getStatus() {
 		return status;
 	}
@@ -82,24 +78,73 @@ public class Order {
 		this.status = status;
 	}
 
-	
-	public Double getTotal() {
+
+	public double getTotal() {
 		return total;
 	}
 
-	public void setTotal(Double total) {
+	public void setTotal(double total) {
 		this.total = total;
 	}
-
+	
 
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", date=" + date + ", userId=" + userId + ", status=" + status + ", total=" + total
 				+ "]";
 	}
-	
-	
 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Order other = (Order) obj;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (Double.doubleToLongBits(total) != Double.doubleToLongBits(other.total))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
+	}
+
+	
+	public Order(LocalDate date, Integer userId, String status, double total) {
+		
+		this.date = date;
+		this.userId = userId;
+		this.status = status;
+		this.total = total;
+	}
+
+	public Order() {
+		
+	}
+
+	
+	
+	
 }
 
 /*
