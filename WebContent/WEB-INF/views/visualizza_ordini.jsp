@@ -10,14 +10,31 @@
 
 
 
-ECCO LA LISTA DEGLI ORDINI EFFETTUATI NELL'ECOMMERCE BEIJE<br>
-<body>
-<Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
-<c:forEach items="${dettaglio_ordine}" var="dettaglio">
-${dettaglio}<br>
-<br><br>
-</c:forEach>
 
-	
+<body>
+	<TABLE WIDTH="75%" ALIGN="center">
+		<tr>
+			<td>
+				<Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
+			<td>
+		</tr>
+		<tr>
+			<th>ECCO LA LISTA DEGLI ORDINI EFFETTUATI NELL'ECOMMERCE BEIJE<br></th>
+		</tr>
+  		<TR>
+			<TD>
+			<DIV ALIGN="left">
+				<c:forEach items="${orderDetails}" var="orderdetail">
+					order Id: ${orderdetail.orderId}<br>
+					name: ${orderdetail.name}<br>
+					brand: ${orderdetail.brand}<br>
+					quantity: ${orderdetail.orderItemQuantity}<br>
+					description: ${orderdetail.description}<br>
+					<br><br>
+				</c:forEach>
+			</DIV>
+			</TD>
+		</TR>
+	</TABLE>
 </body>
 </html>

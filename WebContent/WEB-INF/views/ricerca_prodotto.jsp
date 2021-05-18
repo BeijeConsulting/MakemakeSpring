@@ -10,34 +10,34 @@
 </head>
 <body>
 
-<Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
 
 
-<TABLE WIDTH="75%" ALIGN="center">
-  <TR>
-<TD>
-<DIV ALIGN="center">
-<DIV ALIGN="justify">
-${errore}
-<form action="ricerca_prodotto" method="post">
-  <label for="name">name:</label><br>
-  <input type="text" name="name"><br>
-   <input type="submit" value="Submit">
-   </form>
+	<TABLE WIDTH="75%" align="center">
+  		<TR>
+			<TD>
+			<Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
+			<br><br>
+			<DIV ALIGN="left">
+			${errore}
+			<form action="ricerca_prodotto" method="post">
+				 <br>
+ 				 <label for="name">name:</label><br>
+ 				 <input type="text" name="name"><br>
+  				 <input type="submit" value="Submit">
+ 			</form>
    
-<c:forEach items="${lista_prodotti}" var="prodotto">
-<br>
-name: ${prodotto.name}<br>
-brand: ${prodotto.brand}<br>
-description: ${prodotto.desc}<br>
-price: ${prodotto.price}<br>
-quantity: ${prodotto.quantity}<br>
-<br><br><br>
-</c:forEach>
-   	
-	</DIV>
-</TD>
-</TR>
-</TABLE>
+			<c:forEach items="${lista_prodotti}" var="prodotto">
+				<br>
+				name: ${prodotto.name}<br>
+				brand: ${prodotto.brand}<br>
+				description: ${prodotto.desc}<br>
+				price: ${prodotto.price}<br>
+				quantity: ${prodotto.quantity}<br>
+				<br><br><br>
+			</c:forEach>
+			</DIV>
+			</TD>
+		</TR>
+	</TABLE>
 </body>
 </html>

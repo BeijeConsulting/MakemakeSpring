@@ -1,5 +1,6 @@
 package it.beije.makemake.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.beije.makemake.ecommerce.OrderDetails;
 import it.beije.makemake.ecommerce.Product;
 import it.beije.makemake.ecommerce.User;
 import it.beije.makemake.service.EcommerceService;
@@ -87,7 +89,7 @@ public class EcommerceController {
 		return "homepage";
 	}
 
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
 	public String ricerca_prodotto(Model model,
 			@RequestParam String name) {
 		List<Product> productList = ecommerceService.findByName(name);
@@ -103,25 +105,27 @@ public class EcommerceController {
 	}
 
 
-	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
+	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
 	public String ricerca_prodotto() {
 		System.out.println("GET ricerca_prodotto");
 		return "ricerca_prodotto";
 	}
 	
 	@RequestMapping(path = "/visualizza_ordini", method = RequestMethod.GET)
-	public String visualizza_ordini(HttpServletRequest request) {
+	public String visualizza_ordini(HttpServletRequest request,Model model) {
+		
 		System.out.println("GET visualizza_ordini");
 		User user=(User)request.getSession().getAttribute("user");
 		Integer userId = user.getId();
-		request.getSession().setAttribute("dettaglio_ordine", ecommerceService.getOrderDetails(userId));
-		
+		List<OrderDetails> orderDetails = new ArrayList<>();
+		ecommerceService.getOrderDetails(userId,orderDetails);
+		request.getSession().setAttribute("orderDetails", orderDetails);
 		return "visualizza_ordini";
 	}
 	
 	@RequestMapping(path = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
-		System.out.println("GET login_ecommerce");
+		System.out.println("GET logout");
 		request.getSession().invalidate();
 		return "login_ecommerce";
 	}

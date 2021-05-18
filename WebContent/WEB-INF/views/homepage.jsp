@@ -12,7 +12,7 @@
   <TR>
 <TD>
 <DIV ALIGN="center">
-<h1>BENVENUTO ${user.username}</h1></DIV>
+<h1>BENVENUTO ${user.name}</h1></DIV>
 <DIV ALIGN="justify">
 
 
