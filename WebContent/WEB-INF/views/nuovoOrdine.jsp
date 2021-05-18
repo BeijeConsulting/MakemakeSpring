@@ -13,40 +13,28 @@
 
   <table>
   <tr>
-  <th>
-  NAME
-  </th>
-  <th>
-  BRAND
-  </th>
-  <th>
-  PRICE
-  </th>
-  <th>
-  DESC
-  </th>
-  <th>
-  QUANTITY
-  </th>
-  <th></th>
-  </tr>
+	<th>Product id</th>
+	<th>Name</th>
+	<th>Brand</th>
+	<th>Description</th>
+	<th>Price</th>
+	<th>Available quantity</th>
+	<th> </th>
+</tr>
+<c:forEach items="${prodotti}" var="prodotto">
   <tr>
-  <c:forEach items="${prodotti}" var="prodotto">
-           
-                <td> ${prodotto.name} </td>
-                <td> ${prodotto.brand} </td>
-                <td> ${prodotto.price} </td>
-                <td> ${prodotto.desc} </td>
-                <td> ${prodotto.quantity} </td>
-                <td><input type="number" name=${prodotto.quantity}></td>
-                <td><input type="checkbox" name="serviceBox"
-                    value="${prodotto.id}" /></td>
-            
-        </c:forEach>
-        </tr></table>
+    <td>${prodotto.id}</td>
+    <td>${prodotto.name}</td>
+    <td>${prodotto.brand}</td>
+    <td>${prodotto.desc}</td>
+    <td>${prodotto.price}</td>
+    <td>${prodotto.quantity}</td>
+    <td></td></tr>
+    </c:forEach>
+       
+</table>
 <input type="submit" value="BUY">
 </form> 
-
 
 
 <a href="home">torna alla Home</a><br><br>
