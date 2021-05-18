@@ -72,17 +72,17 @@ public class ECommerceController {
     	return productService.getProducts(model) ; 
     }
     
-    @RequestMapping(path = "ecommerce/buyProduct",method = RequestMethod.GET)
+    @RequestMapping(path = "ecommerce/buy_product",method = RequestMethod.GET)
     public String buyProduct(@RequestParam Integer productId,Model model) {
     	return productService.buyProduct(model, productId);
     }
 
-    @RequestMapping(path="ecommerce/addToCart", method=RequestMethod.POST)
+    @RequestMapping(path="ecommerce/add_to_cart", method=RequestMethod.POST)
     public String addToCart(@RequestParam Integer productId, @RequestParam Integer amount,  HttpSession session, Model model) {
         return productService.addToCart(productId, amount, session, model);
     }
 
-    @RequestMapping(path="ecommerce/sendOrder")
+    @RequestMapping(path="ecommerce/send_order")
     public String sendOrder(HttpSession session, Model model) {
         return productService.sendOrder(session, model);
     }

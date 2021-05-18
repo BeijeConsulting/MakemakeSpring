@@ -49,7 +49,7 @@
     <td>${product.price}</td>
     <td>${product.quantity}</td>
     <td>
-        <a href="${pageContext.request.contextPath}/ecommerce/buyProduct?productId=${product.id}">
+        <a href="${pageContext.request.contextPath}/ecommerce/buy_product?productId=${product.id}">
             <button>Buy</button>
         </a>
             </td>
@@ -58,7 +58,7 @@
 </table>
 <h3 class="notice">${notice}</h3>
  <h3 class="error">${error}</h3>
-<form action="${pageContext.request.contextPath}/ecommerce/sendOrder">
+<form action="${pageContext.request.contextPath}/ecommerce/send_order">
     <input type="submit" value="Send order">
 
 </form><br>

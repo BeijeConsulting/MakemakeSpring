@@ -12,7 +12,7 @@
 <p>${product.desc}</p>
 <h3>Price : ${product.price} </h3>
 <h4>Quantity available : ${product.quantity}</h4>
-<form action="${pageContext.request.contextPath}/ecommerce/addToCart" method="post">
+<form action="${pageContext.request.contextPath}/ecommerce/add_to_cart" method="post">
     <input type="number" name="amount">
     <input type="hidden" name="productId" value="${product.id}">
     <input type="submit" value="Add to cart">

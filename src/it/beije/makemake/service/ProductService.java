@@ -49,7 +49,7 @@ public class ProductService {
     	if(productOptional.isPresent()) {
     		Product product = productOptional.get();
     		model.addAttribute("product",product);
-    		return "buyProduct";
+    		return "buy_product";
     	}
     	model.addAttribute("error","id of the product not present ");
         return "view_products";
@@ -79,7 +79,6 @@ public class ProductService {
 	@Transactional
 	public String sendOrder(HttpSession session, Model model) {
 		HashMap<Integer, Integer> cart = (HashMap<Integer, Integer>) session.getAttribute("cart");
-		System.out.println(cart);
 		BigDecimal total = new BigDecimal(0);
 		if (cart == null || cart.isEmpty()) {
 			model.addAttribute("error", "Cart is empty");
