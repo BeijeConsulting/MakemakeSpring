@@ -15,7 +15,7 @@
 			<br>
 			<p>Scegli l'operazione che vuoi andare a fare</p>
 			<ul>
-				<li><a href="#">Fai il login</a></li>
+				<li><a href="login_page">Fai il login</a></li>
 				<li><a href="#">Registrati</a>
 				<li><a href="#">Visualizza prodotti disponibili</a></li>
 				<li><a href="#">Aggiungi al carrello</a></li>

@@ -1,4 +1,4 @@
-package it.beije.makemake.controller;
+package it.beije.makemake.ecommerce.controller;
 
 import java.util.Locale;
 
