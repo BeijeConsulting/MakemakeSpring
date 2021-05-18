@@ -80,8 +80,7 @@ public class ContattoController {
 	public @ResponseBody Contatto updateContatto(@PathVariable(name = "id") Integer id, @RequestBody Contatto newData) {
 		
 		System.out.println("PUT updateContatto : " + id);
-		
-//		if (id == newData.getId())...
+
 		
 		Contatto contatto = contattoService.findById(id);
 		
@@ -109,5 +108,19 @@ public class ContattoController {
 		
 		return response;
 	}
+	
+	@GetMapping("/cercacontatto/{name}")
+	public @ResponseBody List<Contatto> searchContatto(@PathVariable(name = "name") String name) {
+		
+		System.out.println("GET searchContatto : " + name);
+		
+		List<Contatto> contatti= contattoService.findByName(name);
+		
+		System.out.println("contatto : " + contatti);
+		
+		return contatti;
+	}
+	
+	
 
 }

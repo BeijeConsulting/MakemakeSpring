@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "`order`")
 public class Order { 
@@ -24,6 +26,7 @@ public class Order {
 	@Column
 	private LocalDateTime date;
 	
+	
 	@Column(name = "id_user")
 	private Integer userId;
 	
@@ -32,8 +35,9 @@ public class Order {
 	
 	@Column
 	private BigDecimal total;
-
-	@OneToMany(cascade=CascadeType.ALL/*, fetch=FetchType.EAGER*/)
+	
+	@JsonIgnore
+	@OneToMany(cascade=CascadeType.ALL/*, fetch=FetchType.EAGER*/)	
 	@JoinColumn(name="id_order")
 	private static List<Order_item> orderId;
 

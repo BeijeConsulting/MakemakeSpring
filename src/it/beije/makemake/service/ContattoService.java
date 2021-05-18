@@ -56,5 +56,8 @@ public class ContattoService {
 	public List<Contatto> findByNameOrEmail(String name, String email) {
 		return contattoRepository.findByNameOrEmail(name, email);
 	}
-
+	
+	public List<Contatto> findByName(String name){
+		return contattoRepository.findByName(name);
+	}
 }

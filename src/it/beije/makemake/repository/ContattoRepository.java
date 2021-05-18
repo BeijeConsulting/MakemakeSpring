@@ -26,4 +26,5 @@ public interface ContattoRepository extends JpaRepository<Contatto, Integer> { /
 	//@Query(value ="SELECT * FROM Contatto as c WHERE name LIKE :letters%")
 	public List<Contatto> searchByFirstLettersOfName(@Param("iniziali") String firstLetters);
 	
+	public List<Contatto> findByName(String name);
 }
