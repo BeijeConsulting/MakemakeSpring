@@ -11,7 +11,7 @@ ECCO LA LISTA DEI PRODOTTI DELL'ECOMMERCE BEIJE<br>
 <body>
 <Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
 <c:forEach items="${prodotti}" var="prodotto">
-id: ${prodotto.id}<br>
+
 name: ${prodotto.name}<br>
 brand: ${prodotto.brand}<br>
 description: ${prodotto.desc}<br>

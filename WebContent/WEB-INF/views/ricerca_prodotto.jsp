@@ -21,7 +21,7 @@ ${errore}
    </form>
    
 <c:forEach items="${lista_prodotti}" var="prodotto">
-id: ${prodotto.id}<br>
+<br>
 name: ${prodotto.name}<br>
 brand: ${prodotto.brand}<br>
 description: ${prodotto.desc}<br>
