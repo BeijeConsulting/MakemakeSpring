@@ -102,7 +102,7 @@ public class EcommerceController {
 		model.addAttribute("lista_prodotti", productList);
 		return "ricerca_prodotto";
 	}
-
+//c
 	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.GET)
 	public String ricerca_prodotto() {
 		System.out.println("GET ricerca_prodotto");
