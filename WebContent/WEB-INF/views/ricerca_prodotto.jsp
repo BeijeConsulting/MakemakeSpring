@@ -9,11 +9,16 @@
 <title>Ricerca prodotto</title>
 </head>
 <body>
-${errore}
+
 <Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
 
 
-
+<TABLE WIDTH="75%" ALIGN="center">
+  <TR>
+<TD>
+<DIV ALIGN="center">
+<DIV ALIGN="justify">
+${errore}
 <form action="ricerca_prodotto" method="post">
   <label for="name">name:</label><br>
   <input type="text" name="name"><br>
@@ -29,6 +34,10 @@ price: ${prodotto.price}<br>
 quantity: ${prodotto.quantity}<br>
 <br><br><br>
 </c:forEach>
-   
+   	
+	</DIV>
+</TD>
+</TR>
+</TABLE>
 </body>
 </html>

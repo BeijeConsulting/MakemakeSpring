@@ -57,10 +57,18 @@ public class EcommerceController {
 	}
 
 	@RequestMapping(path = "/registrazione", method = RequestMethod.POST)
-	public String registrazione(@RequestParam(required = false) String username,
-			@RequestParam(required = false) String password, @RequestParam(required = false) String name,
+	public String registrazione(Model model, 
+			@RequestParam(required = false) String username,
+			@RequestParam(required = false) String password,
+			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String surname) {
-
+		if (username == null || username.length() == 0 || 
+				password == null || password.length() == 0 ||
+				name == null || name.length() == 0 ||
+				surname == null || surname.length() == 0) {
+			model.addAttribute("errore", "<h6 style='color:red'>DATI NON VALIDI</h6>");
+			return "registrazione";
+		}
 		System.out.println("GET registrazone");
 		ecommerceService.save(username, name, surname, password);
 		return "login_ecommerce";

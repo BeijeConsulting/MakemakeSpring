@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+${errore}
 <form action="registrazione" method="post">
   <label for="username">username:</label><br>
   <input type="text" name="username"><br>
-  <label for="password">password:</label><br>
+  <label for="password">password:</label><br><br>
   <input type="text" name="password"><br><br>
   <label for="name">name:</label><br>
   <input type="text" name="name"><br><br>

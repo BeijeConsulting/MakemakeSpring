@@ -7,6 +7,9 @@
 <meta charset="ISO-8859-1">
 <title>Lista dei prodotti</title>
 </head>
+
+
+
 ECCO LA LISTA DEGLI ORDINI EFFETTUATI NELL'ECOMMERCE BEIJE<br>
 <body>
 <Div align="right" > <a href="homepage"> torna alla HomePage </a></Div>
@@ -15,6 +18,6 @@ ${dettaglio}<br>
 <br><br>
 </c:forEach>
 
-
+	
 </body>
 </html>
