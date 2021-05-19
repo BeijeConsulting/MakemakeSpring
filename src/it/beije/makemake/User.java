@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class User {
@@ -33,6 +35,7 @@ public class User {
 	@Column
 	private String surname;
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL/*, fetch=FetchType.EAGER*/)
 	@JoinColumn(name="id_user")
 	private List<Order> orders;

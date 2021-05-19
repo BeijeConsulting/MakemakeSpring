@@ -9,6 +9,6 @@
 <body>
 	<a href="http://localhost:8080/MakemakeSpring/visualizza_prodotti">Aggiungi altri Prodotti al carrello</a>
 	<br><br>
-	<a href="http://localhost:8080/MakemakeSpring/completa_ordine">Visualizza dettagli utente</a>
+	<a href="http://localhost:8080/MakemakeSpring/completa_ordine">Procedi con l'acquisto</a>
 </body>
 </html>
