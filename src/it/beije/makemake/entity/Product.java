@@ -26,7 +26,7 @@ public class Product {
 	private String brand;
 
 	@Column
-	private String description;
+	private String descr;
 
 	@Column
 	private BigDecimal price;
@@ -37,7 +37,7 @@ public class Product {
 	@Column
 	private Integer quantity;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_product")
 	private List<OrderItem> orderItems;
 
@@ -66,11 +66,11 @@ public class Product {
 	}
 
 	public String getDescription() {
-		return description;
+		return descr;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String descr) {
+		this.descr = descr;
 	}
 
 	public BigDecimal getPrice() {
@@ -107,7 +107,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", brand=" + brand + ", description=" + description + ", price="
+		return "Product [id=" + id + ", name=" + name + ", brand=" + brand + ", description=" + descr + ", price="
 				+ price + ", image=" + image + ", quantity=" + quantity + "]";
 	}
 }

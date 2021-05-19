@@ -16,4 +16,14 @@ public class ProductService {
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
 	}
+
+	public void save(Product prodotto) {
+		// TODO Auto-generated method stub
+		productRepository.save(prodotto);
+	}
+	
+	public List<Product> addToCar(List<Product> carrello, Product prodotto) {
+		carrello.add(prodotto);
+		return carrello;
+	}
 }
