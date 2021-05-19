@@ -1,4 +1,4 @@
-package it.beije.makemake.ecommerce;
+package it.beije.makemake.ecommerce.entity;
 
 import java.util.List;
 
@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User {
 	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -28,14 +30,12 @@ public class User {
 	
 	@Column
 	private String password;
-
-	@Column
+	
 	private String name;
-
-	@Column
+	
 	private String surname;
 	
-//	@JsonIgnore
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="id_user")
 	private List<Order> orders;
@@ -91,14 +91,57 @@ public class User {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", surname="
 				+ surname + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equalsIgnoreCase(other.name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equalsIgnoreCase(other.surname))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equalsIgnoreCase(other.username))
+			return false;
+		return true;
+	}
+
 	
+	public User(String username, String password, String name, String surname) {		
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.surname = surname;
+	}
+
+	public User() {
 	
+	}
+
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -106,7 +149,16 @@ public class User {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-
+	public boolean isNull() {
+		boolean nullo = false;
+		if( this.getName()==null &&
+			this.getPassword()==null &&
+			this.getSurname()==null &&
+			this.getUsername()==null) {
+			nullo = true;
+		}
+		return nullo;
+	}
 
 
 }
