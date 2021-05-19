@@ -28,7 +28,7 @@ public class UserService {
 	
 	public String getOrderList(User user,Model model) {
 			
-		List<Order> lista= user.getOrderlist();
+		List<Order> lista= user.getOrders();
 		if(!(lista.isEmpty())){
 			model.addAttribute("orders", lista);
 		}else {

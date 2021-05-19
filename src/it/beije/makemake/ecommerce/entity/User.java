@@ -39,9 +39,7 @@ public class User {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="id_user")
-	private List<Order> orderList;
-	
-
+	private List<Order> orders;
 	
 	public Integer getId() {
 		return id;
@@ -93,15 +91,15 @@ public class User {
 				+ surname + "]";
 	}
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
 	
-	public List<Order> getOrderlist() {
-		return orderList;
-	}
-
-	public void setOrderList(List<Order> orderList) {
-		this.orderList = orderList;
-	}
-
 
 }
 
