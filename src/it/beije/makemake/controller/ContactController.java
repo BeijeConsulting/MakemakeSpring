@@ -23,9 +23,6 @@ public class ContactController {
 	@RequestMapping(path = "/contacts", method = RequestMethod.GET)
 	public String getContactList(Model model) {
 		contacts = cr.findAll();
-		for(Contatto c : contacts) {
-			System.out.println(c.toString());
-		}
 		model.addAttribute("contatti", contacts);
 		return "contatti";
 	}
