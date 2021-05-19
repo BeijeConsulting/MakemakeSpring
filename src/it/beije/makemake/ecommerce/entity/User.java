@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -28,6 +30,7 @@ public class User {
 	@Column(name = "username")
 	private String username;
 	
+	
 	@Column(name = "password")
 	private String password;
 	
@@ -37,6 +40,7 @@ public class User {
 	@Column(name = "surname")
 	private String surname;
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="id_user")
 	private List<Order> orders;
@@ -59,6 +63,7 @@ public class User {
 	}
 
 	
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}

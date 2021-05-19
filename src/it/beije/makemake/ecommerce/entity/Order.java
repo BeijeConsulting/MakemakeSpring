@@ -3,6 +3,7 @@ package it.beije.makemake.ecommerce.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 @Entity
 @Table(name = "\"order\"")
@@ -55,7 +59,16 @@ public class Order {
 	public LocalDateTime getDate() {
 		return date;
 	}
+	
+	@JsonGetter(value = "date")
+	public String getStringDate() {
+		return date.format(DateTimeFormatter.ISO_DATE);
+	}
 
+	@JsonSetter
+	public void setDate(String date) {
+		this.date= LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE);
+	}
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
