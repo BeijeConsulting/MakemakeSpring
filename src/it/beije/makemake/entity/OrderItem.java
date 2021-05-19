@@ -2,11 +2,15 @@ package it.beije.makemake.entity;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +23,18 @@ public class OrderItem {
 	@Column(name = "id_order")
 	private Integer orderId;
 
-	@Column(name = "id_product")
-	private Integer productId;
+//	@Column(name = "id_product")
+//	private Integer productId;
 
 	@Column
 	private BigDecimal price;
 
 	@Column
 	private Integer quantity;
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_product", referencedColumnName = "id")
+	private Product products;
 
 	public Integer getId() {
 		return id;
@@ -44,13 +52,13 @@ public class OrderItem {
 		this.orderId = orderId;
 	}
 
-	public Integer getProductId() {
-		return productId;
-	}
+//	public Integer getProductId() {
+//		return productId;
+//	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
+//	public void setProductId(Integer productId) {
+//		this.productId = productId;
+//	}
 
 	public BigDecimal getPrice() {
 		return price;
@@ -68,13 +76,14 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
+	public Product getProducts() {
+		return products;
+	}
+
+	public void setProducts(Product products) {
+		this.products = products;
+	}
+
 	public OrderItem() {
 	}
-
-	public OrderItem(Integer productId, Integer quantity) {
-		super();
-		this.productId = productId;
-		this.quantity = quantity;
-	}
-
 }

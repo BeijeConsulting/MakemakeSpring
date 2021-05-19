@@ -2,6 +2,7 @@ package it.beije.makemake.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 @Entity
 @Table(name = "\"Order\"")
@@ -33,9 +39,10 @@ public class Order {
 
 	@Column
 	private BigDecimal total;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="id_order")
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_order")
+	@JsonInclude(value = Include.NON_EMPTY)
 	private List<OrderItem> orderItems;
 
 	public Integer getId() {
@@ -50,8 +57,18 @@ public class Order {
 		return date;
 	}
 
+	@JsonGetter(value = "date")
+	public String getStringDate() {
+		return date.format(DateTimeFormatter.ISO_DATE);
+	}
+
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+
+	@JsonSetter
+	public void setDate(String date) {
+		this.date = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE);
 	}
 
 	public Integer getUserId() {
@@ -90,7 +107,7 @@ public class Order {
 	public String toString() {
 		return "Order [date=" + date + ", status=" + status + ", total=" + total + "]";
 	}
-	
+
 }
 
 //CREATE TABLE `makemake`.`order` (

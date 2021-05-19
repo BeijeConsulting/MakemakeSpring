@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @Entity
 public class Product {
 	@Id
@@ -21,12 +24,14 @@ public class Product {
 	private String brand;
 
 	@Column
+	@JsonInclude(value = Include.NON_NULL)
 	private String description;
 
 	@Column
 	private BigDecimal price;
 
 	@Column
+	@JsonInclude(value = Include.NON_NULL)
 	private String image;
 
 	@Column

@@ -1,17 +1,14 @@
 package it.beije.makemake.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 public class User {
@@ -23,17 +20,20 @@ public class User {
 	private String username;
 
 	@Column
+	@JsonIgnore
 	private String password;
 
 	@Column
+	@JsonInclude(value = Include.NON_NULL)
 	private String name;
 
 	@Column
+	@JsonInclude(value = Include.NON_NULL)
 	private String surname;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="id_user")
-	private List<Order> orders;
+
+//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	@JoinColumn(name="id_user")
+//	private List<Order> orders;
 
 	public Integer getId() {
 		return id;
@@ -74,14 +74,14 @@ public class User {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
-	public List<Order> getOrders() {
-		return orders;
-	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
+//	public List<Order> getOrders() {
+//		return orders;
+//	}
+
+//	public void setOrders(List<Order> orders) {
+//		this.orders = orders;
+//	}
 
 	@Override
 	public String toString() {
