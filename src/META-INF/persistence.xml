@@ -3,6 +3,8 @@
 	<persistence-unit name="MakemakeSpring">
 
 		<class>it.beije.makemake.Contatto</class>
+		<class>it.beije.makemake.User</class>
+		<class>it.beije.makemake.Order</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>
