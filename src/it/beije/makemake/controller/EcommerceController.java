@@ -15,13 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.beije.makemake.ecommerce.OrderDetails;
 import it.beije.makemake.ecommerce.Product;
 import it.beije.makemake.ecommerce.User;
+import it.beije.makemake.service.ProductService;
 import it.beije.makemake.service.EcommerceService;
+import it.beije.makemake.service.OrderService;
 
 @Controller
 public class EcommerceController {
 
 	@Autowired
 	private EcommerceService ecommerceService;
+	
+	@Autowired
+	private ProductService productService;
+	
+	@Autowired
+	private OrderService orderService;
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String index() {
@@ -78,7 +86,7 @@ public class EcommerceController {
 	@RequestMapping(path = "/visualizza_prodotti", method = RequestMethod.GET)
 	public String visualizza_prodotti(HttpServletRequest request) {
 		System.out.println("GET visualizza_prodotti");
-		request.getSession().setAttribute("prodotti", ecommerceService.showProduct());
+		request.getSession().setAttribute("prodotti", productService.showProduct());
 		return "visualizza_prodotti";
 	}
 
@@ -92,7 +100,7 @@ public class EcommerceController {
 	@RequestMapping(path = "/ricerca_prodotto", method = RequestMethod.POST)
 	public String ricerca_prodotto(Model model,
 			@RequestParam String name) {
-		List<Product> productList = ecommerceService.findByName(name);
+		List<Product> productList = productService.findByName(name);
 		System.out.println("POST ricerca_prodotto");
 		System.out.println(productList);
 		
@@ -117,9 +125,7 @@ public class EcommerceController {
 		System.out.println("GET visualizza_ordini");
 		User user=(User)request.getSession().getAttribute("user");
 		Integer userId = user.getId();
-		List<OrderDetails> orderDetails = new ArrayList<>();
-		ecommerceService.getOrderDetails(userId,orderDetails);
-		request.getSession().setAttribute("orderDetails", orderDetails);
+		model.addAttribute("orders",orderService.findByUserId(userId));
 		return "visualizza_ordini";
 	}
 	
@@ -129,4 +135,17 @@ public class EcommerceController {
 		request.getSession().invalidate();
 		return "login_ecommerce";
 	}
+	
+	@RequestMapping(path = "/viewOrderDetails", method = RequestMethod.GET)
+	public String viewOrderDetails(Model model,
+			@RequestParam(value="order") Integer order) {
+		System.out.println("GET order Details");
+		List<OrderDetails> orderDetails = new ArrayList<>();
+		orderDetails=orderService.getOrderDetails(order);
+		System.out.println(orderDetails);
+		model.addAttribute("orderDetails",orderDetails );
+		return "viewOrderDetails";
+	}
+	
+	
 }

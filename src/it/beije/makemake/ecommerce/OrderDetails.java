@@ -1,5 +1,10 @@
 package it.beije.makemake.ecommerce;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrderDetails {
 
 	private Integer orderId;
@@ -7,23 +12,14 @@ public class OrderDetails {
 	private String name;
 	private String brand;
 	private String description;
+	private Double price;
 
-	public OrderDetails() {}
-	
-	public Integer getOrderId() {
-		return orderId;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getOrderItemQuantity() {
-		return orderItemQuantity;
-	}
-
-	public void setOrderItemQuantity(Integer orderItemQuantity) {
-		this.orderItemQuantity = orderItemQuantity;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public String getName() {
@@ -49,15 +45,33 @@ public class OrderDetails {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public OrderDetails() {
+	}
+
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+	public Integer getOrderItemQuantity() {
+		return orderItemQuantity;
+	}
+
+	public void setOrderItemQuantity(Integer orderItemQuantity) {
+		this.orderItemQuantity = orderItemQuantity;
+	}
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder()
-				.append("{ Order ID : ").append(orderId).append("\n ")
-				.append("Name : ").append(name).append("\n ")
-				.append("Brand : ").append(brand).append("\n ")
-				.append("Brand : ").append(description).append("\n ")
+				.append("{id : ").append(orderId).append(", ")
+				.append("name : ").append(name).append(", ")
+				.append("brand : ").append(brand).append(", ")
+				.append("desc : ").append(description).append(", ")
 				.append("Quantity : ").append(orderItemQuantity).append(" }");
-		
 		return builder.toString();
 	}
 	

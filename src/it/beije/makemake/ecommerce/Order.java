@@ -35,9 +35,9 @@ public class Order {
 
 	@OneToMany(cascade=CascadeType.ALL/*, fetch=FetchType.EAGER*/)
 	@JoinColumn(name="id_order")
-	private static List<Order_item> orderId;
+	private List<Order_item> orderId;
 
-	public static List<Order_item> getOrderId() {
+	public List<Order_item> getOrderId() {
 		return orderId;
 	}	
 	public void setOrderId(List<Order_item> orderId) {
