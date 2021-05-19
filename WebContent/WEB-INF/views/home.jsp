@@ -7,10 +7,10 @@
 <title>Makemake Home</title>
 </head>
 <body>
-Benvenuto<br>
-<br>
-username: ${username}<br>
-password: ${password}<br>
+Benvenuto ${user.username}<br>
+<a href= "product_page" > [Visualizza prodotti] </a>
+<a href= "order_page" > [Cronologia Ordini] </a>
+<a href= "logout_page" > [Logout] </a>
 
 </body>
 </html>

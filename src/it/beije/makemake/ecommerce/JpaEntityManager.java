@@ -1,4 +1,4 @@
-package it.beije.makemake;
+package it.beije.makemake.ecommerce;
 
 
 import javax.persistence.EntityManagerFactory;
