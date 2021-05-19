@@ -14,7 +14,7 @@ public class Contatto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="idRubrica")
 	private Integer id;
 	
 	@Column(name = "nome")
@@ -26,7 +26,7 @@ public class Contatto {
 	@Column(name = "telefono")
 	private String telephone;
 
-	@Column(name = "email")
+	@Column(name = "mail")
 	private String email;
 	
 	
