@@ -6,10 +6,12 @@
 	<persistence-unit name="MakemakeSpring">
 
 		<class>it.beije.makemake.Contatto</class>
+
 		<class>it.beije.makemake.ecommerce.User</class>
 		<class>it.beije.makemake.ecommerce.Product</class>
 		<class>it.beije.makemake.ecommerce.Order</class>
 		<class>it.beije.makemake.ecommerce.Order_item</class>
+
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
