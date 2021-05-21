@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
-import it.beije.makemake.entity.User;
+import it.beije.makemake.User;
 import it.beije.makemake.repository.UserRepository;
 
 @Service

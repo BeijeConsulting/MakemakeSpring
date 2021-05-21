@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.beije.makemake.entity.User;
+import it.beije.makemake.User;
 import it.beije.makemake.service.UserService;
 import it.beije.makemake.util.EcommerceUtil;
 
