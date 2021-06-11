@@ -1,0 +1,15 @@
+<html>
+<head>
+<link rel="stylesheet" href="cssStyle.css">
+</head>
+
+<body onload="display(path, 'subcategory')">
+
+<script>
+let categoryId = window.localStorage.getItem('categoryId');
+let path = '/category/' + categoryId + '/subcategories';
+</script>
+<script src="jsUtils.js"></script>
+
+</body>
+</html>

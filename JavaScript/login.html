@@ -1,0 +1,80 @@
+<html>
+<head>
+<style>
+#container {
+	margin: auto;
+	width: 50%;
+}
+
+label {
+	display: inline-block;
+}
+
+input {
+	float: right;
+	height: 30px;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.formDiv::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div class="formDiv">
+			<label for="email">Username</label>
+			<input type="text" placeholder="Enter Username" id="email" name="email" required>
+		</div>
+		<br>
+		<div class="formDiv">
+			<label for="password">Password</label>
+			<input type="password" placeholder="Enter Password" id="password" name="password" required>
+		</div>
+		<br>
+		<button type="submit" id="button" onclick="return login()">Login</button>
+	</div>
+<script src="jsUtils.js"></script>
+<script>
+function login() {
+	fetch('http://localhost:8080/StreamingVideoBE/signin', {
+		method: 'POST',
+		body: JSON.stringify({
+			email: document.getElementById('email').value,
+			password: document.getElementById('password').value
+		}),
+		headers: {
+			'Content-type': 'application/json; charset=UTF-8',
+		}
+	})
+	.then((response) => response.json())
+	.then((json) => {
+		if (json.token != null) {
+			window.sessionStorage.setItem('token', json.token);
+			window.location = "home.html";
+		} else {
+			const errorDiv = getErrorDiv();
+			const container = document.getElementById("container");
+			container.insertBefore(errorDiv, document.getElementById("button"));
+		}
+	});
+}
+</script>
+</body>
+</html>
